@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+       <!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+
+	   <!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+
+       <!-- CONTENT --> 
+       <section id="page-content" class="fix_width1200">
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            
+            <!-- 본문 컨텐츠  시작-->
+            
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group fix_width1200 clear">
+					   <ul class="tab_box mt25">
+					       <li class="fl"><a class="box"> 기본 검색 정보 </a> </li>
+					   </ul>
+					   <form>
+						 <div class="tab_box_con">
+						 	
+								<div class="form-group">
+				                <label class="control-label fix_width150 tar">카테고리</label><label class="fix_width20 fs14 tac">:</label>
+				                 <select class="fix_width150" id="cate_top" onchange="cateSelect.exec('top', this.value);">
+                                   [TPH_Vcate_html]
+		                         </select>
+		                         <select class="fix_width150" id="cate_mid" onchange="cateSelect.exec('mid', this.value);">
+							       <option value="">중분류(전체)</option>
+		                         </select>
+		                         <select class="fix_width150" id="cate_bot">
+							       <option value="">소분류(전체)</option>
+		                         </select>
+								</div>								
+								
+								<div class="form-group">
+				                <label class="control-label fix_width150 tar">조건 검색</label><label class="fix_width20 fs14 tac">:</label>
+				                 <select class="fix_width150" id="cnd_val" onchange="changeSearchCnd();">
+													  <option value="title">인쇄물제목</option>
+													  <option value="order_num">주문번호</option>
+													  <option value="member_name">회원명</option>
+													  <option value="office_nick">사내닉네임</option>
+				                 </select>
+				                 <input type="text" class="input_co2" style="width:297px;" id="search_val" onkeyup="this.value == searchCnd(event, this);"> 
+                                 <input type="hidden" id="search_cnd">
+                                 <input type="hidden" id="search_txt">
+								</div>																
+								
+								<div class="form-group">
+									<label class="control-label fix_width150 tar">상태</label><label class="fix_width20 fs14 tac">:</label>
+									<select class="fix_width150" disabled>
+										 <option>접수</option>
+									</select>
+									<select class="fix_width150" id="order_state">
+										 <option value="">상태(전체)</option>
+										 <option value="310">대기</option>
+										 <option value="410">완료</option>
+									</select>
+								</div>											
+								
+								<div class="form-group">
+				                <label class="control-label fix_width150 tar">날짜</label><label class="fix_width20 fs14 tac">:</label>
+                                [TPH_Vdatepicker_html]
+								</div>
+					   </div>
+					   </form>
+            </div> <!-- 탭 박스 1 기본검색 -->
+           
+             <!-- 상세검색버튼 --> 
+            <div class="fix_width1200">
+                <p class="btn-lg red_btn">
+					<a style="cursor: pointer;" onclick="searchReceipt();">선택 조건으로 검색</a>
+                </p>
+            <div>
+            
+            <!-- 탭 박스 3 TAB -->
+            <div class="tb_group fix_width1200 mt25">
+            	<div class="tab_box_con">
+                   <div class="tabbable">                  	
+
+                     <div class="tab-content">
+                     	
+                     	 <div class="tab-pane active" id="tab_list1">
+                             <div class="table-body">
+                                           <div class="table_basic">
+					                              		<ul class="table_top">
+					                                  		<li class="sel">
+					                                  			
+					                                  			 <select class="fix_width150" id="depar_code" onchange="changeDeparCode();">
+                                                                     [TPH_Vdepar_html]
+					                                  			 </select>
+					                                  			
+					                                  		</li>
+					                                  		<li class="sel tar">					                              		          
+					                                  		</li>
+					                              		</ul>
+					                              		<table class="table fix_width100f">
+                                                              <thead>
+									                                     <tr>
+										                                       <th class="bm2px">No</th>
+										                                       <th class="bm2px">팀</th>
+										                                       <th class="bm2px">주문번호</th>
+										                                       <th class="bm2px">회원명</th>
+										                                       <th class="bm2px">인쇄제목</th>
+										                                       <th class="bm2px">소분류</th>
+										                                       <th class="bm2px">종이</th>
+										                                       <th class="bm2px">사이즈</th>										                                       
+										                                       <th class="bm2px">인쇄도수</th>
+										                                       <th class="bm2px">주문날짜</th>
+										                                       <th class="bm2px">건수</th>
+										                                       <th class="bm2px">수량</th>
+										                                       <th class="bm2px">상태</th>
+									                                     </tr>
+                                                              </thead>
+                                                              <tbody id="list">
+                                                              </tbody>
+					                              		</table>
+					                              		<p class="p_num_b fs12">					                              			  					                              			  
+					                              	  		<button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showStatusMng();">상태변경관리</button>
+					                              	  		<label class="fix_width20">&nbsp;</label>
+
+					                              			  Showing 1 to 5 of 30 entries
+					                                          <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'nomal');">
+					                              	            <option>5</option>
+					                              	            <option>10</option>
+					                              	            <option>20</option>
+					                              	            <option selected="selected">30</option>
+					                              	          </select>
+					                              		</p>
+					                              		<div class="tac clear" id="page">
+										                </div>
+                                           </div>
+                             </div>
+                     	 </div>             	
+                     </div>
+                   </div>
+            	</div>
+            </div> <!-- 탭 박스 3 TAB -->
+       </section>
+</div>
+</body>
+</html>

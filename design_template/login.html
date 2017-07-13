@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>로그인</title>
+    <meta charset="utf-8">
+    <!-- 기본 css -->
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font-awesome.min.css">
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/guide.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/common.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/tab.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/basic_manager.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.css">
+
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/lib/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/jquery.scrollUp.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/toggle.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-tab.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
+    <style type="text/css">
+        //body { background-color: #e7ebee; }
+        body { background-color: #193246; }
+        .login .bg { position:absolute; background-image:url([TPH_Vdesign_dir]/images/background.png) }
+        .hc { width:700px; left:0; right:0; margin-left:auto; margin-right:auto; } /* 가로 중앙 정렬 */
+        .vc { height:354px; top: 22%; margin-top:auto; margin-bottom:auto; } /* 세로 중앙 정렬 */
+        .form-group { position: absolute; top: 28%; left: 24%;}
+        .form-group p { position: absolute; top: 5px; left: 230px; }
+        .login-btn { line-height: 20px; font-size:16px; width: 307px; height: 42px; margin: 5px 38px; background: -webkit-gradient(linear, left top, left bottom, from(#5fa2dd), to(#193246)) !important;}
+        .err_msg { font-size: 13px; color: #e04634; }
+    </style>
+
+    <!-- 공통 -->
+    <script src="[TPH_Vdesign_dir]/js/common/common.js"></script>
+    <!-- 기본 검색 정보 -->
+    <script>
+        $(function(){
+            $("dd:not(.active)").css("display","none");
+            $("dl dt").click(function(){
+                if($("+dd",this).css("display")=="none"){
+                    $("dd").slideUp("fast");
+                    $("+dd",this).slideDown("fast");
+                }
+            });
+            $("#id").focus();
+        });
+    </script>
+    <script>
+        $(function () {
+            $.scrollUp({
+                scrollName: 'scrollUp', // Element ID
+                scrollDistance: 300, // Distance from top/bottom before showing element (px)
+                scrollFrom: 'top', // 'top' or 'bottom'
+                scrollSpeed: 300, // Speed back to top (ms)
+                easingType: 'linear', // top easing (see http://easings.net/)
+                animation: 'fade', // Fade, slide, none
+                animationInSpeed: 200, // Animation in speed (ms)
+                animationOutSpeed: 200, // Animation out speed (ms)
+                scrollText: '<img src="[TPH_Vdesign_dir]/images/top.png">', // Text for element, can contain HTML
+                scrollTitle: false, // Set a custom <a> title if required. Defaults to scrollText
+                scrollImg: false, // Set true to use image
+                activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+                zIndex: 2147483647 // Z-Index for the overlay
+            });
+        });
+    </script>
+</head>
+<body>
+<section>
+    <div class="login">
+        <div class="bg hc vc">
+            <div class="form-group">
+                <label class="control-label fix_width10 tar"></label><label class="fix_width20 fs14 tac"></label>
+                <label class="control-label" style="display:none;"><input type="radio" name="login_dvs" value="dp" checked="checked">사내직원</label>
+                &nbsp;<label class="control-label" style="display:none;"><input type="radio" name="login_dvs" value="out">생산업체</label>
+                <br />
+                <label class="control-label fix_width10 tar">ID</label><label class="fix_width20 fs14 tac"></label>
+                <input type="text" class="input_co2 fix_width300" id="id" onkeyup="idkey(event);">
+                <br />
+                <label class="control-label fix_width10 tar">PW</label><label class="fix_width20 fs14 tac"></label>
+                <input type="password" class="input_co2 fix_width300" id="pw" onkeyup="loginKey(event);">
+                <button class="btn btn_md login-btn" onclick="login();">로그인</button>
+                <br />
+                <label class="control-label" style="margin-left:38px;"><span id="login_err_msg" class="err_msg">*본 erp는 주식회사 총무팀 전용 erp입니다.</span></label>
+                <div>
+                    <div>
+                    </div>
+</section>
+</body>
+</html>

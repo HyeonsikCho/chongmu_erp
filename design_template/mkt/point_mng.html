@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+       <section id="page-content" class="fix_width1200">
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+
+
+            <!-- 탭 박스 2 TAB -->
+            <div class="tb_group fix_width1200 mt25">
+               <div class="tab_box_con">
+                   <div class="tabbable">
+                   	
+                   	<!-- TAB UI -->
+                     <ul class="nav nav-tabs">
+                       <li class="active">
+                       	   <a href="#tab_level1" data-toggle="tab"> 포인트통계 </a> 
+                       </li>
+                       <li>
+                       	   <a href="#tab_level2" onclick="loadPointPolicy();" data-toggle="tab"> 포인트정책 </a> 
+                       </li>
+                     </ul>
+                     <!-- TAB UI -->
+                     
+                     <div class="tab-content">
+                     	
+                     	<div class="tab-pane active" id="tab_level1"><!-- 포인트통계 TAB 01 -->                         	
+                     		
+                        	<div class="form-group">
+				            	<label class="control-label fix_width75 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+				                <select class="fix_width200">
+									<option>(주)굿프린팅</option>
+									<option>jQuery</option>
+				                </select>
+                            </div>
+                            
+                            <div class="form-group">
+				            	<label class="control-label fix_width75 tar">월</label><label class="fix_width20 fs14 tac">:</label>
+				                <select class="fix_width120">
+									<option>2015</option>
+				                </select>
+				                <select class="fix_width73">
+									<option>11</option>
+				                 </select>
+				                 <label class="btn btn_md fix_width63">조회</label>
+                            </div>
+                            <br /><br /><br />
+                            
+                            <div class="form-group">
+				            	<label class="control-label fix_width120 tar">회원가입 포인트</label><label class="fix_width20 fs14 tac">:</label>
+				            	<input type="text" class="input_co2 fix_width150" value="">
+                            </div>
+                            
+                            <div class="form-group">
+				            	<label class="control-label fix_width120 tar">상품주문 포인트</label><label class="fix_width20 fs14 tac">:</label>
+				            	<input type="text" class="input_co2 fix_width150" value="">
+                            </div>
+                            
+                            <div class="form-group">
+				            	<label class="control-label fix_width120 tar">관리자 지급 포인트</label><label class="fix_width20 fs14 tac">:</label>
+				            	<input type="text" class="input_co2 fix_width150" value="">
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="button" class="btn btn-sm btn-info"><i class="fa fa-plus"></i></button>
+				            	<label class="control-label fix_width85 tar">등급 포인트</label><label class="fix_width20 fs14 tac">:</label>
+				            	<input type="text" class="input_co2 fix_width150" value="">
+                            </div>
+                            <hr class="hr_bd3_b">
+                            
+                            <div class="form-group">
+				            	<label class="control-label fix_width120 tar">합계</label><label class="fix_width20 fs14 tac">:</label>
+				            	<input type="text" class="input_co2 fix_width150" value="">
+                            </div>
+                            
+                            <div class="form-group">
+				            	<label class="control-label fix_width120 tar">총 회수 포인트</label><label class="fix_width20 fs14 tac">:</label>
+				            	<input type="text" class="input_co2 fix_width150" value="">
+                            </div>                                            
+                         
+                         </div>
+                       
+                         <div class="tab-pane" id="tab_level2"> <!-- 포인트정책 TAB 02 -->
+                         <form id="point_form">
+                            
+                            <div class="form-group">
+				            	<label class="control-label fix_width120 tar">회원가입 포인트</label><label class="fix_width20 fs14 tac">:</label>
+				                <input name="join_point" id="join_point" type="text" class="input_co2 fix_width200">
+				                <label class="fix_width10"></label>Point
+                            </div>
+                            
+                            <div class="form-group">
+				            	<label class="control-label fix_width120 tar">상품주문 포인트</label><label class="fix_width20 fs14 tac">:</label>
+				                <input name="order_rate" id="order_rate" type="text" class="input_co2 fix_width200">
+				                <label class="fix_width10"></label>% 를 배송완료시 지급됩니다.
+                            </div>
+                            
+                            <p class="btn-lg red_btn">
+                                <a onclick="savePointPolicy(); return false;" href="#">포인트 정책을 저장합니다</a>					
+                            </p>                	    
+                       	      
+                        </form>
+                         </div>
+
+                     </div> 
+                    
+                   </div> 
+                </div>
+            </div> <!-- 탭 박스 3 TAB -->
+
+
+       </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

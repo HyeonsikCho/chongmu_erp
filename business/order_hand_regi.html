@@ -1,0 +1,31 @@
+<?
+include_once($_SERVER["DOCUMENT_ROOT"] . "/define/left_menu.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/LeftMenuSetting.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/entity/FormBean.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/business/order_mng/OrderHandRegiDAO.php");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$dao = new OrderHandRegiDAO();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$commonDAO = $dao;
+
+// 판매채널 검색
+$sell_site_html = $commonDAO->selectSellSite($conn);
+$template->reg("sell_site" , $sell_site_html);
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "business"; //기초관리
+$left = "order_mng"; //레프트 메뉴
+$left_sub = "order_hand_regi"; //레프트하위 메뉴, script 주소
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->Close();
+?>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>전산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content" class="fix_width1200">            
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+            
+            <div class="tb_group fix_width1200 mt25">
+                <div class="tab_box_con">           
+                    <div class="table-body">
+                        <ul class="table_top">	
+                            <li class="sel">                                            
+                            </li>						      	                  
+                            <li class="sel tar">
+                                <!-- <label for="search" class="con_label">Search(회원명) : <input id="search" type="text" class="search_btn fix_width120"><button type="button" class="btn btn-sm btn-info fa fa-search"></button></label> -->
+                            </li>
+                        </ul>
+                        
+                        <div class="table_basic">                                
+                            <table class="table fix_width100f">
+                                <thead>
+                                    <tr>
+                        	            <th class="bm2px">#</th>
+                        	            <th class="bm2px">팝업명</th>
+                        	            <th class="bm2px">게시기간</th>
+                        	            <th class="bm2px">시간</th>
+                        	            <th class="bm2px">사용</th>
+                        	            <th class="bm2px">미리보기</th>
+                        	            <th class="bm2px">관리</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="popup_list">
+                                [TPH_Vpopup_list]
+                                </tbody>
+                            </table>             			        	              
+                        </div>  
+                                                                                              
+                    </div>                                         
+                </div>                
+            </div>      
+        </section>
+</div>
+</body>
+</html>

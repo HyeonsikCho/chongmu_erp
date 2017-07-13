@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/common/common_paging.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/lib/jquery.form.min.js"></script>
+    <script type="text/javascript" src="/plupload/js/plupload.full.min.js"></script>
+</head>
+<body>
+
+<div id="container">
+
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content" class="fix_width1200">
+        <!-- 히스토리 -->
+        [TPH_I/common/history.html]
+        <!-- 본문 컨텐츠  시작-->
+        <!-- 탭 박스 2 TAB -->
+        <div class="tb_group fix_width1200 mt25">
+            <div class="tab_box_con">
+                <div class="tabbable">
+                    <!-- TAB UI -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_list1" onclick="cndSearch.tabDvs = 'memb'" data-toggle="tab"> 회원별검색 </a> </li>
+                        <!--     <li><a href="#tab_list2" onclick="cndSearch.tabDvs = 'team'" data-toggle="tab"> 팀별검색 </a></li>-->
+                    </ul>
+
+                    <!-- TAB UI -->
+                    <div class="tab-content">
+                        <!-- 탭 박스 회원별검색 -->
+                        <div class="tab-pane active" id="tab_list1">
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">카테고리</label><label class="fix_width20 fs14 tac">:</label>
+                                <select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="fix_width180">
+                                    [TPH_Vcate_html]
+                                </select>
+                                <select id="cate_mid" onchange="cateSelect.exec('mid', this.value);" class="fix_width180">
+                                    <option value="">중분류(전체)</option>
+                                </select>
+                                <select id="cate_bot" class="fix_width180">
+                                    <option value="">소분류(전체)</option>
+                                </select>
+                            </div>
+
+                            <hr class="hr_bd2">
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">회원명</label><label class="fix_width20 fs14 tac">:</label>
+                                <input type="text" id="office_nick" onkeydown="searchOfficeNick(event, this.value, '');" class="input_co2 fix_width150" value="" placeholder="검색창 팝업 사용">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">일자별</label><label class="fix_width20 fs14 tac">:</label>
+                                <select disabled="disabled" class="fix_width150">
+                                    <option values="">주문일</option>
+                                </select>
+                                [TPH_Vdate_memb_html]
+                            </div>
+
+                            <!--div class="form-group">
+                                <label class="control-label fix_width150 tar">Status(상태)</label><label class="fix_width20 fs14 tac">:</label>
+                                <select id="status_memb" onchange="loadStatusProc.exec('memb', this.value);" class="fix_width150">
+                                    [TPH_Vstatus_html]
+                                </select>
+                                <select id="status_proc_memb" class="fix_width150">
+                                    <option value="">상태(전체)</option>
+                                </select>
+                            </div-->
+                        </div><!-- 회원별검색 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 상세검색버튼 -->
+        <div class="fix_width1200">
+            <p class="btn-lg red_btn">
+                <a href="#" onclick="cndSearch.exec('', '');">선택 조건으로 검색</a>
+            </p>
+            <div>
+                <br />
+                <!-- 검색결과 TABle -->
+                <div class="tb_group fix_width1200 mt25">
+                    <div class="table-body">
+                        <div class="table_basic">
+                            <table class="table fix_width100f">
+                                <thead>
+                                <tr>
+                                    <th class="bm2px">주문일자</th>
+                                    <th class="bm2px">주문번호</th>
+                                    <th class="bm2px">회원명</th>
+                                    <th class="bm2px">회원아이디</th>
+                                    <th class="bm2px">인쇄물제목</th>
+                                    <th class="bm2px">상품정보</th>
+                                    <th class="bm2px">상태</th>
+                                    <th class="bm2px">상세보기</th>
+                                </tr>
+                                </thead>
+                                <tbody id="order_list">
+                                <tr>
+                                    [TPH_Vorder_list_html]
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <p class="p_num_b fs12">
+                                Showing 1 to 5 of 30 entries
+                                <select onchange="showPageSetting(this.value);" class="fix_width55">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="20" selected="selected">20</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </p>
+							<div class="tac clear" id="page">
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+</body>
+</html>

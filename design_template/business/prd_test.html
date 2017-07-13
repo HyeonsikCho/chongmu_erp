@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/common/common_paging.js"></script>
+</head>
+<body>
+
+<div id="container">
+    	
+   <!-- TOP NAVIGATION --> 
+   [TPH_I/common/header.html]
+   <!-- LEFT NAVIGATION --> 
+   [TPH_Vleft]
+   <!-- CONTENT --> 
+   <section id="page-content" class="fix_width1200">
+
+        <!-- 히스토리 -->
+        [TPH_I/common/history.html]
+        
+        <!-- 본문 컨텐츠  시작-->
+        <!-- 탭 박스 2 TAB -->
+        <div class="tb_group fix_width1200 mt25">
+            <div class="tab_box_con">
+                <div class="tabbable">
+					<!-- TAB UI -->
+                    <ul class="nav nav-tabs">
+                       <li class="active"><a href="#tab_list1" onclick="cndSearch.tabDvs = 'memb'" data-toggle="tab"> 회원별검색 </a> </li>
+                  <!--     <li><a href="#tab_list2" onclick="cndSearch.tabDvs = 'team'" data-toggle="tab"> 팀별검색 </a></li>-->
+                    </ul>
+					
+                    <!-- TAB UI -->
+                    <div class="tab-content">                		  
+                        <!-- 탭 박스 회원별검색 -->
+                        <div class="tab-pane active" id="tab_list1">             
+                        
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">카테고리</label><label class="fix_width20 fs14 tac">:</label>
+                                <select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="fix_width180">
+                                    [TPH_Vcate_top_html]
+                                </select>
+                                <select id="cate_mid" onchange="cateSelect.exec('mid', this.value);" class="fix_width180">
+                                    [TPH_Vcate_mid_html]
+                                </select>
+                                <select id="cate_bot" onchange="cateSelect.exec('bot', this.value);" class="fix_width180">
+                                    [TPH_Vcate_bot_html]
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">종이</label><label class="fix_width20 fs14 tac">:</label>
+                                <select id="paperList" onClick="test1(this)" class="fix_width180">
+                                </select>
+                            </div>				
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">인쇄도수</label><label class="fix_width20 fs14 tac">:</label>
+                                <select id="printList" onchange="cateSelect.exec('top', this.value);" class="fix_width180">
+                                </select>
+                            </div>	
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">사이즈</label><label class="fix_width20 fs14 tac">:</label>
+                                <select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="fix_width180">
+									<option value=''>규격</option>
+									<option value=''>비규격</option>
+                                </select>
+                                <select id="stanList" onchange="cateSelect.exec('top', this.value);" class="fix_width180">
+                                </select>
+                            </div>	
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">재단사이즈</label><label class="fix_width20 fs14 tac">:</label>
+									<label class="control-label fix_width150 tar">가로</label><label class="fix_width20 fs14 tac">:</label>
+									<input type='text' size='10'>
+									<label class="control-label fix_width150 tar">세로</label><label class="fix_width20 fs14 tac">:</label>
+									<input type='text' size='10'>
+                            </div>	
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">작업사이즈</label><label class="fix_width20 fs14 tac">:</label>
+									<label class="control-label fix_width150 tar">가로</label><label class="fix_width20 fs14 tac">:</label>
+									<input type='text' size='10'>
+									<label class="control-label fix_width150 tar">세로</label><label class="fix_width20 fs14 tac">:</label>
+									<input type='text' size='10'>
+                            </div>	
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">수량</label><label class="fix_width20 fs14 tac">:</label>
+                                <select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="fix_width180">
+									<option value=''>규격</option>
+									<option value=''>비규격</option>
+                                </select>
+								x
+                                <select id="amountList" onchange="cateSelect.exec('top', this.value);" class="fix_width180">
+                                </select>
+                                <label class="control-label fix_width150 tar">건</label><label class="fix_width20 fs14 tac">:</label>
+                                <select id="cate_top" onchange="" class="fix_width180">
+									<option value='1'>1</option>
+									<option value='2'>2</option>
+									<option value='3'>3</option>
+									<option value='4'>4</option>
+									<option value='5'>5</option>
+									<option value='6'>6</option>
+									<option value='7'>7</option>
+									<option value='8'>8</option>
+									<option value='9'>9</option>
+									<option value='10'>10</option>
+                                </select>
+                            </div>	
+                        </div><!-- 회원별검색 -->
+						
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">가격</label><label class="fix_width20 fs14 tac">:</label>
+								<div></div>
+                            </div>	
+						
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+         <!-- 상세검색버튼 --> 
+        <div class="fix_width1200">
+            <p class="btn-lg red_btn">
+                <a href="#" onclick="cndSearch.exec('', '');">선택 조건으로 검색</a>					
+            </p>
+        <div>
+        <br />
+        <!-- 검색결과 TABle -->            
+        <div class="tb_group fix_width1200 mt25">
+        <!--
+        <ul class="tab_box mt25">
+        <li>
+        <a class="box">주문 리스트</a>
+        </li>
+        </ul>
+        -->
+        <div class="table-body">
+            <ul class="table_top">	
+                <li class="sel">
+                    <label class="fs14 fwb" id="order_total"></label>     
+                </li>						      	                  
+               	<li class="sel tar">					                              		          
+              	</li>
+            </ul>
+            
+            <div class="table_basic">
+                <table class="table fix_width100f">
+                    <thead>
+                        <tr>
+                              <th class="bm2px">번호</th>
+                              <th class="bm2px">채널</th>
+                              <th class="bm2px">주문번호</th>
+                              <th class="bm2px">주문일</th>
+                              <th class="bm2px">회원명</th>
+                              <th class="bm2px">인쇄물제목</th>
+                              <th class="bm2px">상품정보</th>
+                              <th class="bm2px">상태</th>
+                              <th class="bm2px">상품가격</th>
+                              <th class="bm2px">상세정보</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order_list">
+                        <tr>                  
+                            [TPH_Vorder_list_html]
+                        </tr>                  
+                    </tbody>
+                </table>
+                
+                <p class="p_num_b fs12">
+                    Showing 1 to 5 of 30 entries
+                    <select onchange="cndSearch.exec('l', this.value);" class="fix_width55">
+                         <option value="5">5</option>
+                         <option value="10">10</option>
+                         <option value="20">20</option>
+                         <option value="30" selected="selected">30</option>
+                    </select>
+                </p>
+                <div class="tac clear">
+                    <ul id="paging" class="pagination">
+                         <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                         <li><a class="active" href="#">1</a></li>
+                         <li class="disabled"><i class="fa fa-angle-right"></i></li>
+                    </ul>
+                </div>			              
+            </div>
+        </div>
+        </div>
+    </section>
+
+</div> 
+</body>
+</html>

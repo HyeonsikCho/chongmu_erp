@@ -1,0 +1,322 @@
+$(document).ready(function() {
+
+    loadVirtBaList(1);
+    loadBankName();
+
+});
+
+var page = 1;
+var list_num = 30;
+var member_seqno = "";
+var edit_virt_seqno = "";
+var edit_member_seqno = "";
+
+//가상계좌리스트 불러오기
+var loadVirtBaList = function(pg) {
+
+    var formData = new FormData($("#ba_form")[0]);
+    page = pg;
+    formData.append("page", page);
+    formData.append("list_num", list_num);
+
+    if ($("#search_dvs").val() == "2" && $("#search_str").val()) {
+
+        if (!member_seqno) {
+
+            alert("회원명을 엔터 후 선택해주세요");
+            $("#search_str").focus();
+
+        } else {
+
+            formData.append("member_seqno", member_seqno);
+
+        }
+    }
+
+    $.ajax({
+        type: "POST",
+	processData : false,
+	contentType : false,
+        data: formData,
+        url: "/ajax/calcul_mng/virt_ba_list/load_virt_ba_list.php",
+        success: function(result) {
+		var list = result.split('♪♭@');
+            	if($.trim(list[0]) == "") {
+
+                $("#ba_list").html("<tr><td colspan='5'>검색된 내용이 없습니다.</td></tr>"); 
+
+	        } else {
+
+                $("#ba_list").html(list[0]);
+                $("#ba_page").html(list[1]); 
+                $('select[name=list_set]').val(list_num);
+
+	        }
+        },
+        error: getAjaxError
+    });
+}
+
+//가상계좌 저장
+var saveVirtBa = function() {
+
+    var formData = new FormData($("#edit_form")[0]);
+    formData.append("member_seqno", edit_member_seqno);
+    formData.append("virt_ba_admin_seqno", edit_virt_seqno);
+
+    $.ajax({
+        type: "POST",
+	processData : false,
+	contentType : false,
+        data: formData,
+        url: "/proc/calcul_mng/virt_ba_list/proc_virt_ba_info.php",
+        success: function(result) {
+	    if ($.trim(result == "1")) {
+	    
+	        alert("저장했습니다.");
+    		loadVirtBaList(page);
+		hideRegiPopup();
+
+	    } else {
+
+	        alert("저장에 실패했습니다.");
+
+	    }
+        },
+        error: getAjaxError
+    });
+
+}
+
+//예금주 인풋창 지우기
+var removeBaMember = function(){
+
+    edit_member_seqno = "";
+    $("#pop_member_name").val('');
+    
+}
+
+//팝업창 검색 버튼 클릭 검색시
+var clickSearchCnd = function(event, search_str, dvs) {
+
+    loadSearchCnd(event, $("#search_pop").val(), "click");
+
+}
+
+//계좌번호/회원명 가져오기
+var loadSearchCnd = function(event, search_str, dvs) {
+
+    if (dvs != "click") {
+    	if (event.keyCode != 13) {
+
+	    return false;
+    	}
+    }
+
+    showMask();
+
+
+    $.ajax({
+            type: "POST",
+            data: {
+                "sell_site"  : $("#sell_site").val(),
+                "search_str" : search_str,
+                "search_dvs" : $("#search_dvs").val()
+            },
+            url: "/ajax/calcul_mng/virt_ba_list/load_search_cnd.php",
+            success: function(result) {
+                if (dvs == "") {
+
+                    hideMask();
+                    searchPopShow(event, 'loadSearchCnd', 'clickSearchCnd');
+
+                } else {
+
+
+		    hideMask();
+		    showBgMask();
+
+		}
+                $("#search_list").html(result);
+            }   
+    });
+}
+
+//회원명 가져오기
+var loadSearchMember = function(event, dvs) {
+    
+    if (dvs == "1") {
+
+    	if (event.keyCode != 13) {
+
+            return false;
+    	}
+    }
+
+    showMask();
+    showPopPopMask();
+
+    $.ajax({
+            type: "POST",
+            data: {
+                "sell_site"  : $("#pop_sell_site").val(),
+                "search_str" : $("#search_mem").val(),
+                "search_dvs" : "3"
+            },
+            url: "/ajax/calcul_mng/virt_ba_list/load_search_cnd.php",
+            success: function(result) {
+
+		$("#search_list").html(result);
+		hideMask();
+		hidePopPopMask();
+		showBgMask();
+		showPopMask();
+	    }   
+    });
+}
+
+//검색창 팝업 show
+var popSearchMember = function(event) {
+
+    var html = "";
+   
+    html += "\n  <dl>";
+    html += "\n    <dt class=\"tit\">";
+    html += "\n      <h4>검색창 팝업</h4>";
+    html += "\n    </dt>";
+    html += "\n    <dt class=\"cls\">";
+    html += "\n      <button type=\"button\" onclick=\"hidePopPopup();\" class=\"btn btn-sm btn-danger fa fa-times\">";
+    html += "\n      </button>";
+    html += "\n    </dt>";
+    html += "\n  </dl>";
+    html += "\n  <div class=\"pop-base\">";
+    html += "\n    <div class=\"pop-content\">";
+    html += "\n      <label for=\"search_mem\" class=\"con_label\">";
+    html += "\n        Search : ";
+    html += "\n        <input id=\"search_mem\" type=\"text\" class=\"search_btn fix_width180\" onkeydown=\"loadSearchMember(event, '1');\">";
+    html += "\n        <button type=\"button\" class=\"btn btn-sm btn-info fa fa-search\" onclick=\"loadSearchMember(event, '2');\">";
+    html += "\n        </button>";
+    html += "\n      </label>";
+    html += "\n      <hr class=\"hr_bd3\">";
+    html += "\n      <div class=\"list_scroll fix_height120\" id=\"search_list\">";
+    html += "\n      </div>";
+    html += "\n    </div>";
+    html += "\n  </div>";
+    html += "\n</div>";
+
+    openPopPopup(html, 440);
+    showPopMask();
+
+}
+
+//보여 주는 페이지 갯수 설정
+var showPageSetting = function(val) {
+
+    list_num = val;
+    loadVirtBaList(1);
+} 
+
+//선택 조건으로 검색(페이징 클릭)
+var searchResult = function(pg) {
+
+    page = pg;
+    loadVirtBaList(page);
+
+}
+
+//팝업 검색된 가상계좌 클릭시
+var baClick = function(name, name) {
+
+    $("#search_str").val(name);
+    hideRegiPopup();
+
+}
+
+//팝업 검색된 회원명 클릭시
+var memberClick = function(seq, name) {
+
+    member_seqno = seq;
+    $("#search_str").val(name);
+    hideRegiPopup();
+
+}
+
+//수정 팝업 검색된 회원명 클릭시
+var editMemberClick = function(seq, name) {
+
+    edit_member_seqno = seq;
+    $("#pop_member_name").val(name);
+    hidePopPopup();
+
+}
+
+//수정 팝업의 판매채널 변경시
+var changeSellSite = function() {
+
+    $("#pop_member_name").val("");
+    edit_member_seqno = "";
+    loadBankName();
+
+}
+
+//은행이름 가져오기
+var loadBankName = function() {
+
+    $.ajax({
+            type: "POST",
+            data: {
+                "sell_site"  : $("#sell_site").val()
+            },
+            url: "/ajax/calcul_mng/virt_ba_list/load_bank_name.php",
+            success: function(result) {
+                $("#bank_name").html(result);
+            }   
+    });
+}
+
+//회원 가상계좌 상세
+var loadVirtBaDetail = function(seq
+                               ,cpn_seq
+                               ,bank_name
+                               ,mem_seq
+                               ,mem_name
+                               ,ba_num) {
+
+    edit_virt_seqno = seq;
+    openRegiPopup($("#ba_popup").html(), 650);
+    $("#pop_sell_site").val(cpn_seq);
+    $("#bank_name").val(bank_name);
+
+    //회원일련번호가 있으면
+    edit_member_seqno = mem_seq;
+
+    $("#pop_member_name").val(mem_name);
+    $("#pop_ba_num").val(ba_num);
+
+}
+
+//회원 가상계좌 삭제
+var removeMemberVirtBa = function(seq) {
+
+    $.ajax({
+            type: "POST",
+            data: {
+                "virt_ba_admin_seqno" : seq
+            },
+            url: "/proc/calcul_mng/virt_ba_list/proc_member_virt_ba.php",
+            success: function(result) {
+                if (result == "1") {
+
+                    alert("삭제하였습니다.");
+                    loadVirtBaList(page);
+
+                } else {
+                
+                    alert("삭제에 실패하였습니다.");
+
+
+                }
+            }   
+    });
+}
+

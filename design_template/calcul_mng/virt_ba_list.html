@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content" class="fix_width1200">            
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+            
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group fix_width1200 clear">
+    			<ul class="tab_box mt25">
+    			    <li class="fl"><a class="box"> 기본검색정보 </a> </li>
+    			</ul>
+			    <form id="ba_form" name="ba_form" onsubmit="return false;">
+			        <div class="tab_box_con">
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+        			        <select id="sell_site" name="sell_site" class="fix_width180">
+                                [TPH_Vsell_site]
+        		            </select>
+					    </div>
+					    
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">검색구분</label><label class="fix_width20 fs14 tac">:</label>
+						    <select id="search_dvs" name="search_dvs" class="fix_width150">
+                                <option value="1">계좌번호</option>
+                                <option value="2">예금주</option>
+                            </select>
+        			        <input type="text" class="input_co2 fix_width200" name="search_str" id="search_str" onkeydown="loadSearchCnd(event, this.value, '');" placeholder="검색창 팝업 사용">
+					    </div>			    
+					    
+
+						<div class="form-group">
+    						<label class="control-label fix_width79 tar">상태</label><label class="fix_width20 fs14 tac">:</label>
+						    <select id="state" name="state" class="fix_width150">
+                                <option value="">전체</option>
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+    					</div>
+
+
+			        </div>
+			    </form>
+            </div> <!-- 탭 박스 1 기본검색 -->           
+            
+             <!-- 상세검색버튼 -->
+            <div class="fix_width1200">
+                <p class="btn-lg red_btn">
+                    <a onclick="loadVirtBaList(1);" href="#">선택한 조건으로 검색</a>					
+                </p>
+            <div>
+
+
+			<br /><br />
+
+			<div class="table-body">
+                
+                <div class="table_basic">
+                
+			        <table class="table fix_width100f">
+                        <thead>
+			                <tr>
+			    	              <th class="bm2px">No</th>
+			    	              <th class="bm2px">은행</th>
+			    	              <th class="bm2px">예금주(회원사)</th>
+			    	              <th class="bm2px">가상계좌번호</th>   	                                    <th class="bm2px">관리</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ba_list">
+                            <tr>
+                                <td colspan='5'>검색된 내용이 없습니다.
+                            </tr>
+                        </tbody>
+			        </table>
+			        
+			        <p class="p_num_b fs12">
+			            Showing 1 to 5 of 30 entries
+			            <select name="list_set" onchange="showPageSetting(this.value); return false;" class="fix_width55">
+			                 <option>5</option>
+			                 <option>10</option>
+			                 <option>20</option>
+			                 <option>30</option>
+			            </select>
+			        </p>
+			        <div class="tac clear" id="ba_page">
+			    	    <ul class="pagination">
+			    	        <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+			    	        <li class="disabled"><i class="fa fa-angle-left"></i></li>
+			    	        <li><a class="active" href="#">1</a></li>
+			    	        <li><a href="#" class="fa fa-angle-right"></a></li>
+			    	        <li><a href="#" class="fa fa-angle-double-right"></a></li>
+			    	    </ul>
+			    	</div>			              
+                </div>
+            </div>
+
+
+		<!--검색팝업-->
+					   <div id="ba_popup" style="display:none;">
+					   <form id="edit_form">
+									<dl>
+									    <dt class="tit">
+									        <h4>검색창 팝업</h4>
+									    </dt>
+									    <dt class="cls">
+									        <button type="button" onclick="hideRegiPopup();" class="btn btn-sm btn-danger fa fa-times"></button>
+									    </dt>
+									    </dl>  
+									    <div class="pop-base">
+									        <div class="pop-content">								        	   
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+													<select onclick="changeSellSite();" id="pop_sell_site" name="pop_sell_site" class="fix_width180">
+                                                        [TPH_Vsell_site]
+													</select>
+												</div>
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">은행명</label><label class="fix_width20 fs14 tac">:</label>
+													<select id="bank_name" name="bank_name" class="fix_width180">
+													</select>
+												</div>
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">예금주</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" id="pop_member_name" name="pop_member_name" class="input_co2 fix_width140" placeholder="찾기 클릭후 선택해주세요" readonly>
+													<button type="button" onclick="popSearchMember(event);" class="btn btn-sm btn-success">찾기</button> <button type="button" onclick="removeBaMember();" class="btn btn-sm btn-danger">지움</button>
+												</div>
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">계좌번호</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width200" id="pop_ba_num" name="pop_ba_num" readonly>
+												</div>
+												<div class="clear mt15 tac">
+													<!--<button type="button" onclick="saveVirtBa();" class="btn btn-sm btn-success">저장</button>-->
+
+													<label onclick="saveVirtBa();" class="btn btn_md fix_width80">저장</label>
+												</div>
+									        </div>
+									    </div>
+										</form>
+					   </div>  
+		<!-- -->
+
+
+
+
+
+        </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

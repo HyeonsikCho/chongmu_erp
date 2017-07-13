@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>마케팅</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+       <section id="page-content" class="fix_width1200">
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+
+
+            <!-- 탭 박스 3 TAB -->
+            <div class="tb_group fix_width1200 mt25">
+               <div class="tab_box_con">
+                   <div class="tabbable">
+                   	
+                   	<!-- TAB UI -->
+                     <ul class="nav nav-tabs">
+                       <li class="active">
+                       	   <a href="#tab_level1" onclick="loadOeventList('1')" data-toggle="tab"> 오특이 </a> 
+                       </li>
+                       <li>
+                       	   <a href="#tab_level2" onclick="loadNowadaysList('1')" data-toggle="tab"> 요즘바빠요 </a> 
+                       </li>
+                       <li>
+                       	   <a href="#tab_level3" onclick="loadOvertoList('1')" data-toggle="tab"> 골라담기 </a> 
+                       </li>
+                     </ul>
+                     <!-- TAB UI -->
+                     
+                     <div class="tab-content">
+                     	
+                     	<div class="tab-pane active" id="tab_level1"><!-- 오특이 TAB 01 -->                         	                	
+                       	
+                            <div class="table-body">
+
+                                    <div class="table_basic">
+					                    <table class="fix_width100f">
+					                    	<thead>
+					                       <tr>
+					                    	    <th class="bm2px">판매채널</th>					                      				    
+					                    	    <th class="bm2px">이벤트이름</th>
+					                    	    <th class="bm2px">카테고리</th>
+					                    	    <th class="bm2px">시간</th>
+					                    	    <th class="bm2px">진열여부</th>
+					                    	    <th class="bm2px">관리</th>
+					                    	</tr>					                      				
+					                     </thead>
+					                     <tbody id="oevent_list">	
+                                         [TPH_Voevent_list]
+					                     </tbody>
+					                    </table>
+					                    <p class="p_num_b fs12">
+					                        <button class="btn btn_pu fix_width120 fix_height30 co_blue fs12" onclick="popOeventLayer();">등록</button>
+					                    </p>
+					                    <br />
+                                    </div>
+                            </div>
+                         </div>
+                       
+                         <div class="tab-pane" id="tab_level2"> <!-- 요즘바빠요 TAB 02 -->
+                            
+                            <div class="table-body">
+                                    <div class="table_basic">
+					                    <table class="fix_width100f">
+					                    	<thead>
+					                       <tr>
+					                    	    <th class="bm2px">판매채널</th>					                      				    
+					                    	    <th class="bm2px">이벤트이름</th>
+					                    	    <th class="bm2px">카테고리</th>					                    	    
+					                    	    <th class="bm2px">진열여부</th>					                    	    
+					                    	    <th class="bm2px">관리</th>
+					                    	</tr>					                      				
+					                     </thead>
+					                     <tbody id="nowadays_list">	
+					                     </tbody>
+					                    </table>
+					                    <p class="p_num_b fs12">
+					                        <button class="btn btn_pu fix_width120 fix_height30 co_blue fs12" onclick="popNowadaysLayer();">등록</button>
+					                    </p>
+					                    <br />
+                                
+                                    </div>					                  
+                                  </div>                	      
+                         </div>
+                         
+                         <div class="tab-pane" id="tab_level3"> <!-- 골라담기 TAB 03 -->
+                            <div class="table-body">
+                                    <div class="table_basic">
+					                    <table class="fix_width100f">
+					                    	<thead>
+					                       <tr>
+					                    	    <th class="bm2px">판매채널</th>					                      				    
+					                    	    <th class="bm2px">제목</th>
+					                    	    <th class="bm2px">사용여부</th>					                    	    
+					                    	    <th class="bm2px">주문금액</th>
+					                    	    <th class="bm2px">요율</th>
+					                    	    <th class="bm2px">관리</th>
+					                    	</tr>					                      				
+					                     </thead>
+					                     <tbody id="overto_list">	
+                                         <!--
+					                    	<tr>
+					                    		<td>(주)굿프린팅</td>
+					                    		<td>Abc 이벤트</td>
+					                    		<td>사용</td>					                    		
+					                    		<td>1,000,000</td>
+					                    		<td>10</td>
+					                    		<td><button type="button" class="orge btn_pu btn fix_height20 fix_width40" onclick="location.href='이벤트관리_골라담기등록수정팝업창.html'">Edit</button></td>
+					                    	</tr>
+					                    	<tr class="cellbg">
+					                    		<td></td>					                    		
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td><button type="button" class="orge btn_pu btn fix_height20 fix_width40" onclick="location.href='이벤트관리_골라담기등록수정팝업창.html'">Edit</button></td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>					                    		
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td><button type="button" class="orge btn_pu btn fix_height20 fix_width40" onclick="location.href='이벤트관리_골라담기등록수정팝업창.html'">Edit</button></td>
+					                    	</tr>
+					                    	<tr class="cellbg">
+					                    		<td></td>					                    		
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td><button type="button" class="orge btn_pu btn fix_height20 fix_width40" onclick="location.href='이벤트관리_골라담기등록수정팝업창.html'">Edit</button></td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>					                    		
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td><button type="button" class="orge btn_pu btn fix_height20 fix_width40" onclick="location.href='이벤트관리_골라담기등록수정팝업창.html'">Edit</button></td>
+					                    	</tr>					                      				
+                                            -->
+					                     </tbody>
+					                    </table>
+					                    <p class="p_num_b fs12">
+					                        <button class="btn btn_pu fix_width120 fix_height30 co_blue fs12" onclick="popOvertoLayer('');">등록</button>
+					                    </p>
+					                    <br />
+                                    </div>					                  
+                                </div>                	      
+                         </div>
+
+                     </div> 
+                    
+                   </div> 
+                </div>
+            </div> <!-- 탭 박스 3 TAB -->
+
+
+       </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

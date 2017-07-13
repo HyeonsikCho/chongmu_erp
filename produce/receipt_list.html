@@ -1,0 +1,79 @@
+<?
+include_once($_SERVER["DOCUMENT_ROOT"] . "/define/left_menu.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/entity/FormBean.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/LeftMenuSetting.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . '/com/nexmotion/job/produce/receipt_mng/ReceiptListDAO.php');
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$dao = new ReceiptListDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dao; 
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "produce"; //생산
+$left = "receipt_mng"; //레프트 메뉴
+$left_sub = "receipt_list"; //레프트하위 메뉴, script 주소
+
+// 카테고리 대분류 검색
+$cate_html = $dao->selectCateList($conn);
+$template->reg("cate_html" , $cate_html);
+
+$opt = array();
+$opt[0] = "주문일";
+$opt[1] = "접수일";
+
+$optVal = array();
+$optVal[0] = "order_regi_date";
+$optVal[1] = "receipt_regi_date";
+
+$param = array();
+$param["value"] = $optVal;
+$param["fields"] = $opt;
+$param["id"] = "search_cnd2";
+$param["flag"] = TRUE;
+$param["from_id"] = "from";
+$param["to_id"] = "to";
+
+//날짜 검색
+$template->reg("datepicker_html" , makeDatePickerHtml($param));
+
+$param = array();
+$param["table"] = "depar_admin";
+$param["col"] = "depar_code, depar_name, cpn_admin_seqno";
+
+$rs = $dao->selectData($conn, $param);
+
+$html = "\n  <option value=\"%s\">%s</option>";
+$depar_html = "\n  <option value=\"\">팀(전체)</option>";
+while ($rs && !$rs->EOF) {
+
+    $param = array();
+    $param["table"] = "cpn_admin";
+    $param["col"] = "sell_site";
+    $param["where"]["cpn_admin_seqno"] = $rs->fields["cpn_admin_seqno"];
+
+    $cpn_rs = $dao->selectData($conn, $param);
+
+    $depar_name = $cpn_rs->fields["sell_site"] . " " . $rs->fields["depar_name"];
+    $depar_html .= sprintf($html, $rs->fields["depar_code"]
+                                , $depar_name);
+
+    $rs->MoveNext();
+}
+
+//팀 검색
+$template->reg("depar_html" , $depar_html);
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

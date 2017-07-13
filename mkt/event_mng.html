@@ -1,0 +1,39 @@
+<?
+include_once($_SERVER["DOCUMENT_ROOT"] . "/define/left_menu.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/Template.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/ConnectionPool.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/entity/FormBean.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/common/util/LeftMenuSetting.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/com/nexmotion/job/mkt/mkt_mng/EventMngDAO.php");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$eventDAO = new EventMngDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $eventDAO; 
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "mkt"; //기초관리
+$left = "mkt_mng"; //레프트 메뉴
+$left_sub = "event_mng"; //레프트하위 메뉴, script 주소
+
+//리스트 그리기
+$result = $eventDAO->selectOeventList($conn);
+$oevent_list = makeOeventList($result);
+if ($oevent_list == "") {
+
+    $oevent_list = "<tr><td colspan='6'>검색된 내용이 없습니다.</td></tr>";
+}
+
+$template->reg("oevent_list" , $oevent_list);
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

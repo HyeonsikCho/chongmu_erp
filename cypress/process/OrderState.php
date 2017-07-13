@@ -1,0 +1,4 @@
+Res=
+StateName=
+StateCode=
+ProcessGo=

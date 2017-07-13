@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content" class="fix_width1200">            
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+            
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group fix_width1200 clear">
+    			<ul class="tab_box mt25">
+    			    <li class="fl"><a class="box"> 기본검색정보 </a> </li>
+    			</ul>
+			    <form>
+			        <div class="tab_box_con">
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+                                <select id="sell_site" onchange="loadDeparList();" name="sell_site" class="fix_width180">
+                                    [TPH_Vsell_site]
+                                </select>
+					    </div>
+					    <div class="form-group">
+							<label class="control-label fix_width79 tar">카테고리</label><label class="fix_width20 fs14 tac">:</label>
+                            <select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="fix_width150">
+                                [TPH_Vcate_html]
+                            </select>
+                            <select id="cate_mid" onchange="cateSelect.exec('mid', this.value);" class="fix_width150">
+                                <option value="">중분류(전체)</option>
+                            </select>
+                            <select id="cate_bot" onchange="initOptInfo(this.value);" class="fix_width150">
+                                <option value="">소분류(전체)</option>
+                            </select>
+					    </div>					    
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">팀구분</label><label class="fix_width20 fs14 tac">:</label>
+                            <select id="depar_list" name="depar_list" class="fix_width150">
+                                <option value="">전체</option>
+                            </select>
+			                <label class="control-label fix_width79 tar">데이터구분</label><label class="fix_width20 fs14 tac">:</label>
+                            <select class="fix_width150">
+                                <option value="">전체</option>
+                                [TPH_Voper_sys_html]
+                            </select>
+					    </div>
+
+						<div class="form-group">
+    						<label class="control-label fix_width79 tar">일자별</label><label class="fix_width20 fs14 tac">:</label>
+
+                            <input type="text" placeholder="yyyy-MM-dd" class="input_co2 fix_width83 date" name="date_from" id="date_from">
+                            ~
+                            <input id="date_to" name="date_to" class="input_co2 fix_width83 date" type="text" placeholder="yyyy-MM-dd">
+                            <a href="#" onclick="regiDateSet('1')" class="btn btn_md fix_width40">어제</a>
+		                    <a href="#" onclick="regiDateSet('0')" class="btn btn_md fix_width55">오늘</a>
+		                    <a href="#" onclick="regiDateSet('7')" class="btn btn_md fix_width40">일주일</a>
+		                    <a href="#" onclick="regiDateSet('30')" class="btn btn_md fix_width63">한달</a>
+    					</div>
+
+
+			        </div>
+			    </form>
+             </div> <!-- 탭 박스 1 기본검색 -->           
+            
+             <!-- 상세검색버튼 -->
+            <div class="fix_width1200">
+                <p class="btn-lg red_btn">
+                    <a href="#" onclick="loadSalesList(1);">선택한 조건으로 검색</a>					
+                </p>
+            <div>
+
+			<br /><br />
+
+			<div class="table-body">
+                <ul class="table_top">	
+                    <li class=" clear">
+						    <label class="fix_width63">발주업체</label>
+						    <label class="fix_width20 fs14 tac">:</label>
+						    <label class="fix_width120" id="member_cnt">0</label>
+						    <label class="fix_width63">매출총액</label>
+						    <label class="fix_width20 fs14 tac">:</label>
+						    <label class="fix_width120" id="sales_sum">0원</label>
+						    <label class="fix_width63">차감총액</label>
+						    <label class="fix_width20 fs14 tac">:</label>
+						    <label class="fix_width120" id="minus_sum">0원</label>
+						    <label class="fix_width63">순매출</label>
+						    <label class="fix_width20 fs14 tac">:</label>
+						    <label class="fix_width120" id="income_sum">0원</label>
+                            <!--
+					        <label class="fix_width20f">발주업체 : 450</label>
+							<label class="fix_width20f">매출총액 : 21,872,341</label>
+							<label class="fix_width20f">차감총액 : 1,872,341</label>
+							<label class="fix_width20f">순매출 : 1,872,341</label>
+                            -->
+                    </li>
+                </ul>
+             
+
+                <div class="table_basic mt10">
+                
+			        <table class="table fix_width100f">
+                        <thead>
+			                <tr>
+								  <th class="bm2px">날짜</th>
+			    	              <th class="bm2px">팀명</th>
+			    	              <th class="bm2px">데이터구분</th>
+			    	              <th class="bm2px">카테고리</th>
+			    	              <th class="bm2px">주문액</th>   	       
+								  <th class="bm2px">에누리</th>
+			                </tr>
+                        </thead>
+                        <tbody>
+			                <tr>                  
+			                	<td>20160101</td>
+			                	<td>영업1팀</td>
+			                	<td>IBM</td>
+			                	<td>코팅명함</td>
+			                	<td>7,000</td>
+								<td>7,000</td>
+			                </tr>
+			                <tr class="cellbg">                  
+			                	<td>20160101</td>
+			                	<td>영업1팀</td>
+			                	<td>IBM</td>
+			                	<td>코팅명함</td>
+			                	<td>7,000</td>
+								<td>7,000</td>
+			                </tr>
+			                <tr>                  
+			                	<td>20160101</td>
+			                	<td>영업1팀</td>
+			                	<td>IBM</td>
+			                	<td>코팅명함</td>
+			                	<td>7,000</td>
+								<td>7,000</td>
+			                </tr>
+                        </tbody>
+			        </table>
+			        
+			        <p class="p_num_b fs12">
+			            Showing 1 to 5 of 30 entries
+			            <select class="fix_width55">
+			                 <option>5</option>
+			                 <option>10</option>
+			                 <option>20</option>
+			                 <option>30</option>
+			            </select>
+			        </p>
+			        <div class="tac clear">
+			    	    <ul class="pagination">
+			    	        <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+			    	        <li class="disabled"><i class="fa fa-angle-left"></i></li>
+			    	        <li><a class="active" href="#">1</a></li>
+			    	        <li><a href="#">2</a></li>
+			    	        <li><a href="#">3</a></li>
+			    	        <li><a href="#">4</a></li>
+			    	        <li><a href="#">5</a></li>
+			    	        <li><a href="#">...</a></li>
+			    	        <li><a href="#" class="fa fa-angle-right"></a></li>
+			    	        <li><a href="#" class="fa fa-angle-double-right"></a></li>
+			    	    </ul>
+			    	</div>			              
+                </div>
+            </div>
+
+
+
+
+        </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

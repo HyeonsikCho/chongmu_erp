@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content" class="fix_width1200">            
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+            
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group fix_width1200 clear">
+    			<ul class="tab_box mt25">
+    			    <li class="fl"><a class="box"> 계정 </a> </li>
+    			</ul>
+				<div class="table-body">
+					
+					<div class="table_basic">
+					
+						<table class="table fix_width100f">
+							<thead>
+								<tr>
+									  <th class="bm2px">#</th>
+									  <th class="bm2px">계정과목</th>
+									  <th class="bm2px">계정상세</th>
+									  <th class="bm2px">메모</th> 
+									  <th class="bm2px">수정</th> 
+								</tr>
+							</thead>
+							<tbody id="acc_list">
+							</tbody>
+						</table>
+						<p class="p_num_b fs12">
+							Showing 1 to 5 of 30 entries
+					        <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value)">
+								 <option>5</option>
+								 <option>10</option>
+								 <option>20</option>
+								 <option>30</option>
+							</select>
+						</p>
+                        <div class="tac clear" id="acc_page">
+                            <ul class="pagination">
+                                <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                <li><a class="active" href="#">1</a></li>
+                                <li class="disabled"><i class="fa fa-angle-right"></i></li>
+                                <li class="disabled"><i class="fa fa-angle-double-right"></i></li>
+                            </ul>
+                        </div>
+					</div>
+				</div>
+            </div> <!-- 탭 박스 1 기본검색 -->           
+            
+             <!-- 상세검색버튼 -->
+            <div class="fix_width1200">
+                <p class="btn-lg red_btn">
+                    <a onclick="popAccRegi();" href="#">계정추가</a>					
+                </p>
+            <div>
+
+
+		<!--검색팝업-->
+					   <div id="acc_popup" style="display:none;">
+                       <form id="acc_form">
+									<dl>
+									    <dt class="tit">
+									        <h4>검색창 팝업</h4>
+									    </dt>
+									    <dt class="cls">
+									        <button type="button" onclick="hideRegiPopup();" class="btn btn-sm btn-danger fa fa-times"></button>
+									    </dt>
+									    </dl>  
+									    <div class="pop-base">
+									        <div class="pop-content">								        	   
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">계정과목</label><label class="fix_width20 fs14 tac">:</label>
+                                                    <select id="acc_subject" name="acc_subject" class="fix_width200">
+                                                    [TPH_Vacc_html]
+                                                    </select>
+												</div>
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">계정상세</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width200" maxlength="30" id="acc_detail" name="acc_detail">
+												</div>
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">메모</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width200" maxlength="255" id="note" name="note">
+												</div>
+												<div class='clear mt15 tac'>
+
+                    		                        <button type="button" onclick="saveAccDetail();" class="btn btn-sm btn-success">저장</button>
+                    		                        <button type="button" onclick="hideRegiPopup();" class="btn btn-sm btn-info">취소</button>
+												</div>
+									        </div>
+									    </div>
+                        </form>
+					   </div>  
+		<!-- -->
+
+
+
+        </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

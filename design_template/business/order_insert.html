@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/common/common_paging.js"></script>
+	 <script type="text/javascript" src="[TPH_Vdesign_dir]/js/business/order_insert.js"></script>
+</head>
+<body>
+
+<div id="container">
+
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content" class="fix_width1200">
+        <!-- 히스토리 -->
+        [TPH_I/common/history.html]
+        <!-- 본문 컨텐츠  시작-->
+        <!-- 탭 박스 2 TAB -->
+        <div class="tb_group fix_width1200 mt25">
+            <div class="tab_box_con">
+                <div class="tabbable">
+                    <!-- TAB UI -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_list1" onclick="cndSearch.tabDvs = 'memb'" data-toggle="tab"> 회원별검색 </a> </li>
+                        <!--     <li><a href="#tab_list2" onclick="cndSearch.tabDvs = 'team'" data-toggle="tab"> 팀별검색 </a></li>-->
+                    </ul>
+
+                    <!-- TAB UI -->
+                    <div class="tab-content">
+                        <!-- 탭 박스 회원별검색 -->
+                        <div class="tab-pane active" id="tab_list1">
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">회원아이디</label><label class="fix_width20 fs14 tac">:</label>
+                                <input type="text" id="user_id" onkeydown="searchOfficeNick(event, this.value, '');" class="input_co2 fix_width150" value="">
+                            </div>
+                            <hr class="hr_bd2">
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">주문코멘트</label><label class="fix_width20 fs14 tac">:</label>
+                                <input type="text" id="cart_comment" name='cart_commnet' class="input_co2 fix_width150" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">금액(부가세 제외금액-자동계산들어감)</label><label class="fix_width20 fs14 tac">:</label>
+                                <input type="text" id="amount" name='amount' class="input_co2 fix_width150" value="">
+                                [TPH_Vdate_memb_html]
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">총무팀요율</label><label class="fix_width20 fs14 tac">:</label>
+                                <input type="text" id="c_rate" name='c_rate' class="input_co2 fix_width150" value="">
+                                [TPH_Vdate_memb_html]
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label fix_width150 tar">총무팀고객돌려줄요율</label><label class="fix_width20 fs14 tac">:</label>
+                                <input type="text" id="c_user_rate" name='c_user_rate' class="input_co2 fix_width150" value="">
+                                [TPH_Vdate_memb_html]
+                            </div>
+                            <div class="form-group">
+                                <button onClick="orderInsert()">빈주문 넣기</button>
+                            </div>
+                            <!--div class="form-group">
+                                <label class="control-label fix_width150 tar">Status(상태)</label><label class="fix_width20 fs14 tac">:</label>
+                                <select id="status_memb" onchange="loadStatusProc.exec('memb', this.value);" class="fix_width150">
+                                    [TPH_Vstatus_html]
+                                </select>
+                                <select id="status_proc_memb" class="fix_width150">
+                                    <option value="">상태(전체)</option>
+                                </select>
+                            </div-->
+                        </div><!-- 회원별검색 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+
+    	<!-- TOP NAVIGATION -->
+        [TPH_I/common/header.html]
+
+		<!-- LEFT NAVIGATION -->
+		[TPH_Vleft]
+
+        <!-- CONTENT -->
+        <section id="page-content" class="fix_width1200">
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+
+            <!-- 본문 컨텐츠  시작-->
+
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group fix_width1200">
+								<ul class="tab_box mt25">
+						       <li><a class="box">기본검색정보</a></li>
+								</ul>
+					   <form>
+						 <div class="tab_box_con">
+								<div class="form-group">
+				                 <label class="control-label fix_width150 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+        			        <select id="sell_site" class="fix_width180" onchange="loadDeparInfo();">
+				                  [TPH_Vsell_site_html]
+                                 </select>
+								</div>
+
+								<div class="form-group">
+				                 <label class="control-label fix_width150 tar">팀구분</label><label class="fix_width20 fs14 tac">:</label>
+				                 <select class="fix_width180" id="depar_code">
+				                 </select>
+								</div>
+
+								<div class="form-group">
+				                 <label class="control-label fix_width150 tar">회원명</label><label class="fix_width20 fs14 tac"> : </label>
+				                     <input type="text" class="input_co2" style="width:173px;" onkeydown="searchOfficeNick(event, this.value, '');" placeholder="검색창 팝업 사용" id="office_nick">
+									 <input type="hidden" id="member_seqno">
+								</div>
+
+								<div class="form-group">
+				                 <label class="control-label fix_width150 tar">일자별 검색</label><label class="fix_width20 fs14 tac">:</label>
+                                 [TPH_Vdate_inq_html]
+								</div>
+
+								<div class="form-group">
+				                 <label class="control-label fix_width150 tar">상태</label><label class="fix_width20 fs14 tac">:</label>
+								 <select class="fix_width180" disabled="disabled">
+				                     <option value="">답변</option>
+				                 </select>
+								 <select class="fix_width180" id="status">
+                                     <option value="">전체</option>
+                                     <option value="N">대기</option>
+				                     <option value="Y">완료</option>
+				                 </select>
+								</div>
+					   </div>
+					   </form>
+
+            </div>
+
+            <!-- 버튼 -->
+            <div class="fix_width1200">
+                <p class="btn-lg red_btn">
+                    <a style="cursor: pointer;" onclick="searchInquire();">선택 조건으로 검색</a>
+                </p>
+            </div>
+
+            <!-- 탭 박스 5 TAB -->
+            <div class="tb_group2 fix_width1200 mt25">
+              <ul class="tab_box mt25">
+                <li>
+                    <a class="box">1:1문의리스트</a>
+                </li>
+              </ul>
+
+               <div class="tab_box_con">
+
+                       	      <div class="table-body">
+                                   <ul class="table_top">
+							      	              <li class="sel01">
+							      	              </li>
+							      	              <li class="sel02 tar">
+							      	              </li>
+                                   </ul>
+                                    <div class="table_basic">
+					                      		<table class="fix_width100f">
+                                            <thead>
+					                      				<tr>
+					                      					<th class="bm2px">No</th>
+					                      					<th class="bm2px">문의일</th>
+					                      					<th class="bm2px">회원명</th>
+					                      					<th class="bm2px">문의유형</th>
+					                      					<th class="bm2px">문의제목</th>
+					                      					<th class="bm2px">답변일</th>
+					                      					<th class="bm2px">답변자</th>
+					                      					<th class="bm2px">상태</th>
+					                      					<th class="bm2px">관리</th>
+					                      				</tr>
+					                      			 </thead>
+					                      			 <tbody id="list">
+					                      			 </tbody>
+					                      		</table>
+					                      		<p class="p_num_b fs12">
+					                      			  Showing 1 to 5 of 30 entries
+					                      			  <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+					                      	            <option>5</option>
+					                      	            <option>10</option>
+					                      	            <option>20</option>
+					                      	            <option selected="selected">30</option>
+					                      	          </select>
+					                      		</p>
+					                      		<div class="tac clear" id="page">
+										        </div>
+					                  </div>
+                       	      </div>
+               </div>
+            </div>
+
+            <form name="frm" id="frm">
+                <input type="hidden" id="seqno" name="seqno"/>
+            </form>
+
+            <!-- 문의내용 VIEW TAB -->
+            <div class="tb_group fix_width1200" id="oto_cont">
+            </div>
+       </section>
+</div>
+</body>
+</html>

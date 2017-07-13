@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content" class="fix_width1200">            
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+            
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group fix_width1200 clear">
+    			<ul class="tab_box mt25">
+    			    <li class="fl"><a class="box"> 기본검색정보 </a> </li>
+    			</ul>
+			    <form id="search_form" name="search_form">
+			        <div class="tab_box_con">
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+        			        <select id="sell_site" name="sell_site" class="fix_width180">
+                            [TPH_Vsell_site]
+        		            </select>
+					    </div>
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">회원명</label><label class="fix_width20 fs14 tac">:</label>
+        			        <input type="text" id="office_nick" onkeydown="loadSearchNick(event, this.value, '')" name="office_nick" class="input_co2 fix_width200" placeholder="검색창 팝업 사용(엔터 후 선택 필수)">
+					    </div>			    
+					    
+						<div class="form-group">
+    						<label class="control-label fix_width79 tar">거래일자별</label><label class="fix_width20 fs14 tac">:</label>
+                            <input placeholder="yyyy-MM-dd" class="input_co2 fix_width150 date" id="date_from" name="date_from" readonly>
+                            ~
+                            <input placeholder="yyyy-MM-dd" class="input_co2 fix_width150 date" id="date_to" name="date_to" readonly>
+                            <a href="#" onclick="dateSet('1')" style="cursor:pointer;" class="btn btn_md fix_width40">어제</a>
+		                    <a href="#" onclick="dateSet('0')" style="cursor:pointer;" class="btn btn_md fix_width55">오늘</a>
+		                    <a href="#" onclick="dateSet('7')" style="cursor:pointer;" class="btn btn_md fix_width40">일주일</a>
+		                    <a href="#" onclick="dateSet('30')" class="btn btn_md fix_width63">한달</a>
+    					</div>
+			        </div>
+			    </form>
+            </div> <!-- 탭 박스 1 기본검색 -->           
+            
+             <!-- 상세검색버튼 -->
+            <div class="fix_width1200">
+                <p class="btn-lg red_btn">
+                    <a href="#" onclick="loadAdjustList(1);">선택한 조건으로 검색</a>					
+                </p>
+            <div>
+
+
+			<br /><br />
+
+			<div class="table-body">
+                
+                <div class="table_basic">
+                
+			        <table class="table fix_width100f">
+                        <thead>
+			                <tr>
+			    	              <th class="bm2px">회원명</th>
+			    	              <th class="bm2px">일자</th>
+			    	              <th class="bm2px">차감액</th>
+			    	              <th class="bm2px">담당자</th>
+			    	              <th class="bm2px">메모</th>    	              
+			                </tr>
+                        </thead>
+                        <tbody id="adjust_list">
+                            <tr>
+                                <td colspan='5'>검색된 내용이 없습니다.</td>
+                            </tr>
+                        </tbody>
+			        </table>
+			        <p class="p_num_b fs12">
+			            Showing 1 to 5 of 30 entries
+			            <select name="list_set" onchange="showPageSetting(this.value); return false;" class="fix_width55">
+			                 <option>5</option>
+			                 <option>10</option>
+			                 <option>20</option>
+			                 <option>30</option>
+			            </select>
+			        </p>
+			        <div class="tac clear" id="adjust_page">
+			    	    <ul class="pagination">
+			    	        <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+			    	        <li class="disabled"><i class="fa fa-angle-left"></i></li>
+			    	        <li><a class="active" href="#">1</a></li>
+			    	        <li><a href="#" class="fa fa-angle-right"></a></li>
+			    	        <li><a href="#" class="fa fa-angle-double-right"></a></li>
+			    	    </ul>
+			    	</div>			              
+                </div>
+            </div>
+
+        </section>
+
+
+</div>
+</body>
+</html>

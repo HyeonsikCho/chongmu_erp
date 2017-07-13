@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <script src="[TPH_Vdesign_dir]/js/common/common_modi_popup.js"></script>
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+       <section id="page-content" class="fix_width1200">
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+
+
+            <!-- 탭 박스 2 TAB -->
+            <div class="tb_group fix_width1200 mt25">
+               <div class="tab_box_con">
+                   <div class="tabbable">
+                   	
+                   	<!-- TAB UI -->
+                     <ul class="nav nav-tabs">
+                       <li class="active">
+                       	   <a href="#tab_level1" data-toggle="tab"> 쿠폰통계 </a> 
+                       </li>
+                       <li>
+                       	   <a href="#tab_level2" data-toggle="tab"> 쿠폰정책 </a> 
+                       </li>
+                     </ul>
+                     <!-- TAB UI -->
+                     
+                     <div class="tab-content">
+                     	
+                     	<div class="tab-pane active" id="tab_level1"><!-- 쿠폰통계TAB 01 -->                         	
+                     		
+                        	<div class="form-group">
+				            	<label class="control-label fix_width75 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+				                <select id="stats_sell_site" class="fix_width200">
+                                [TPH_Vsell_site]
+				                </select>
+                            </div>
+                            
+                            <div class="form-group">
+				            	<label class="control-label fix_width75 tar">월</label><label class="fix_width20 fs14 tac">:</label>
+				                <select class="fix_width120">
+									<option>2015</option>									
+				                </select>
+				                <select class="fix_width73">
+									<option>11</option>									
+				                 </select>
+				                 <label class="btn btn_md fix_width63">조회</label>
+                            </div>
+                       	
+                            <div class="table-body">
+                                    <div class="table_basic">
+					                    <table class="fix_width100f">
+					                    	<thead>
+					                       <tr>
+					                    	    <th class="bm2px">#</th>					                      				    
+					                    	    <th class="bm2px">채널</th>
+					                    	    <th class="bm2px">쿠폰명</th>
+					                    	    <th class="bm2px">카테고리</th>
+					                    	    <th class="bm2px">내역</th>
+					                    	    <th class="bm2px">발행건수</th>
+					                    	    <th class="bm2px">사용건수</th>
+					                    	    <th class="bm2px">사용된금액</th>
+					                    	</tr>					                      				
+					                     </thead>
+					                     <tbody>	
+					                    	<tr>
+					                    		<td>1</td>
+					                    		<td>GP</td>
+					                    		<td>추석감사쿠폰</td>
+					                    		<td>일반명함</td>
+					                    		<td>10%</td>
+					                    		<td>3,000</td>
+					                    		<td>2,000</td>
+					                    		<td>1,300,500</td>					                    		
+					                    	</tr>
+					                    	<tr class="cellbg">
+					                    		<td>2</td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td>3</td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    	</tr>
+					                    	<tr class="cellbg">
+					                    		<td>4</td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td>5</td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    		<td></td>
+					                    	</tr>					                      				
+					                     </tbody>
+					                    </table>
+                                    </div>
+					                  
+                            </div>
+                         
+                         </div>
+                       
+                         <div class="tab-pane" id="tab_level2"> <!-- 쿠폰정책TAB 02 -->
+                         	
+                       	    <div class="form-group">
+				            	<label class="control-label fix_width75 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+				                <select onchange="loadCpList();" id="policy_sell_site" class="fix_width200">
+                                [TPH_Vsell_site]
+				                </select>
+                            </div>
+                            
+                            <div class="table-body">
+                                    <div class="table_basic">
+					                    <table class="fix_width100f">
+					                    	<thead>
+					                       <tr>
+					                    	    <th class="bm2px">#</th>					                      				    
+					                    	    <th class="bm2px">채널</th>
+					                    	    <th class="bm2px">쿠폰명</th>
+					                    	    <th class="bm2px">할인내용</th>
+					                    	    <th class="bm2px">발행일</th>
+					                    	    <th class="bm2px">소멸일</th>
+					                    	    <th class="bm2px">대상지정</th>
+					                    	    <th class="bm2px">사용여부</th>
+					                    	    <th class="bm2px">관리</th>
+					                    	</tr>					                      				
+					                     </thead>
+                                         <tbody id="cp_list">
+
+                                         </tbody>
+					                    </table>					                    
+					                    <p class="p_num_b fs12">
+					                        <button class="btn btn_pu fix_width120 fix_height30 co_blue fs12" onclick="popCpLayer(event);">등록</button>
+					                    </p>
+					                    <br />
+                                   </div>					                  
+                                                                </div> 
+                            
+                         </div>
+
+                     </div> 
+                     <div class="pop_add_box position480" style="display:none; width:1000px;" id="object_popup_layer">
+                     
+                     </div>
+ 
+                    <div class="pop_add_box position480 fix_width880" style="display:none;" id="cp_popup_layer">
+
+                                    </div>
+
+                                     </div> 
+                </div>
+            </div> <!-- 탭 박스 3 TAB -->
+
+
+       </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

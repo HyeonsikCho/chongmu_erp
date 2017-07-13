@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>전산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content" class="fix_width1200">            
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+            
+            <div class="tb_group fix_width1200 mt25">
+                <form name="passwd_form" id="passwd_form" method="post">
+                <div class="tab_box_con">
+                    <div class="form-group">
+                        <label class="control-label fix_width150 tar">이전비밀번호</label><label class="fix_width20 fs14 tac">:</label>
+                        <input type="password" class="input_co2 fix_width150" id="pw" name="pw">
+                        <br />
+                        
+                        <label class="control-label fix_width150 tar">비밀번호</label><label class="fix_width20 fs14 tac">:</label>
+                        <input type="password" class="input_co2 fix_width150" id="new_pw" name="new_pw">
+                        <br />
+                        
+                        <label class="control-label fix_width150 tar">비밀번호확인</label><label class="fix_width20 fs14 tac">:</label>
+                        <input type="password" class="input_co2 fix_width150" id="new_pw_verify" name="new_pw_verify">
+                        <br />
+                        
+                    </div>
+                </div>                
+                </form>
+            </div>
+            <div class="fix_width1200">
+                <p class="btn-lg red_btn">
+                    <a onclick="changePasswd(); return false;" href="#">선택한 설정을 저장합니다.</a>					
+                </p>
+            <div>      
+        </section>
+</div>
+
+   
+   
+</body>
+</html>

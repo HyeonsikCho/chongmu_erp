@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+       <!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+	   <!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+
+       <!-- CONTENT --> 
+       <section id="page-content" class="fix_width1200">
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+
+            <!-- 상단 공통 탭  -->
+            <div class="tb_group fix_width1200">
+								<ul class="tab_box mt25">
+						           <li>
+						           	 <a class="box">신규 매입업체 등록</a>
+						           </li>
+								</ul>
+					   <form id="pur_etprs_form">
+					   <div class="tab_box_con">
+
+								                    	           <div class="form-group">
+							                    	               <label class="control-label fix_width120 tar">매입업체명</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width180" name="manu_name" id="manu_name">							                    	               
+							                    	               <label class="control-label fix_width120 tar"> 매입품</label><label class="fix_width20 fs14 tac"> :</label>
+				                										 			 	<select name="pur_prdt" id="pur_prdt" class="fix_width120">													  
+													  								 					<option value="종이">종이</option>
+													  													<option value="출력">출력</option>
+													  													<option value="인쇄">인쇄</option>
+													  													<option value="후공정">후공정</option>
+		                    										 				</select>
+		                    										 				<label class="fix_width63"></label>
+							                    	               <label class="control-label fix_width120 tar">거래상태</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <label class="form-radio"><input type="radio" name="deal_yn" value="Y" class="radio_box" checked> 거래중</label>
+							                    	               <label class="fix_width15"></label>   
+							                    	               <label class="form-radio"><input type="radio" name="deal_yn" value="N" class="radio_box"> 거래중지</label>			
+		                    										 	 <br />
+							                    	           </div>    
+							                    	           
+							                    	           <!-- TAB UI -->
+							                    	           <ul class="nav nav-tabs  mt25">
+							                    	               <li class="active">
+							                    	                   <a href="#tab1" data-toggle="tab"> 매입업체 정보 </a> 
+							                    	               </li>
+							                    	           </ul>
+							                    	           <!-- TAB UI -->
+							                    	           
+							                    	           <div class="form-group">
+							                    	               <label class="control-label fix_width120 tar">회사명</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width180" name="cpn_name" id="cpn_name">
+							                    	               <label class="fix_width28"> </label>
+							                    	               <label class="control-label fix_width100 tar">홈페이지</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width200" name="hp" id="hp">
+							                    	               <br />
+							                    	               <label class="control-label fix_width120 tar">전화번호</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width180" name="tel_num" id="tel_num">
+							                    	               <label class="fix_width28"> </label>
+							                    	               <label class="control-label fix_width100 tar">팩스번호</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width180" name="fax" id="fax">
+							                    	               <label class="fix_width28"> </label>
+							                    	               <label class="control-label fix_width120 tar">E-Mail</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width250" name="email" id="email" placeholder="example@goodprinting.biz">
+							                    	               <br />
+							                    	               <label class="control-label fix_width120 tar">주소</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width40" maxlength="5" name="zip" id="zip" readonly>
+							                    	               <label onclick="popZipLayer('etprsClick');" class="btn btn_pu fix_width75 bgreen fs13">우편번호</label>
+							                    	               <br />
+							                    	               <label class="fix_width140"></label>
+							                    	               <input type="text" class="input_co2 fix_width350" name="addr_front" id="addr_front" readonly>
+							                    	               <br />
+							                    	               <label class="fix_width140"></label>
+							                    	               <input type="text" class="input_co2 fix_width350" name="addr_rear" id="addr_rear">
+							                    	           </div>
+							                    	           <hr class="hr_bd3">
+							                    	           <div class="form-group">
+							                    	               <label class="control-label fix_width120 tar">매입업체 담당자</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width100" name="etprs_mng_name" id="etprs_mng_name">
+							                    	               <label class="fix_width28"> </label>
+							                    	               <label class="control-label fix_width30 tar">부서</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width120" name="etprs_depar" id="etprs_depar">
+							                    	               <label class="fix_width28"> </label>
+							                    	               <label class="control-label fix_width30 tar">직책</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width120" name="etprs_job" id="etprs_job">
+							                    	               <br />
+							                    	               <label class="control-label fix_width120 tar">전화번호</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width100" name="etprs_tel_num" id="etprs_tel_num">
+							                    	                <label class="fix_width28"> </label>
+							                    	               <label class="control-label fix_width30 tar">내선</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width75" name="etprs_exten" id="etprs_exten">
+							                    	               <br />
+							                    	               <label class="control-label fix_width120 tar">핸드폰번호</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width180" name="etprs_cell_num" id="etprs_cell_num">
+							                    	               <label class="fix_width28"> </label>
+							                    	               <label class="control-label fix_width100 tar">E-Mail</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width200" name="etprs_email" id="etprs_email">
+							                    	           </div>
+							                    	           <hr class="hr_bd3">
+							                    	           <div class="form-group">
+							                    	               <label class="control-label fix_width120 tar">회계 담당자</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width100" name="accting_mng_name" id="accting_mng_name">
+							                    	               <label class="fix_width28"> </label>
+							                    	               <label class="control-label fix_width30 tar">부서</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width120" name="accting_depar" id="accting_depar">
+							                    	               <label class="fix_width28"> </label>
+							                    	               <label class="control-label fix_width30 tar">직책</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width120" name="accting_job" id="accting_job">
+							                    	               <br />
+							                    	               <label class="control-label fix_width120 tar">전화번호</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width100" name="accting_tel_num" id="accting_tel_num">
+							                    	                <label class="fix_width28"> </label>
+							                    	               <label class="control-label fix_width30 tar">내선</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width75" name="accting_exten" id="accting_exten">
+							                    	               <br />
+							                    	               <label class="control-label fix_width120 tar">핸드폰번호</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width180" name="accting_cell_num" id="accting_cell_num">
+							                    	               <label class="fix_width28"> </label>
+							                    	               <label class="control-label fix_width100 tar">E-Mail</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width200" name="accting_email" id="accting_email">
+							                    	           </div>
+							                    	           
+							                    	           <!-- TAB UI -->
+							                    	           <ul class="nav nav-tabs  mt25">
+							                    	               <li class="active">
+							                    	                   <a href="#tab1" data-toggle="tab"> 매입업체 사업자등록증 정보 </a> 
+							                    	               </li>
+                                                                   <li style="margin-left: 5px;">
+                                                                   <label class="form-radio form-normal"><input type="radio" name="bls_info" value="Y" onclick="copyInfo('Y');" class="check_box"> 회사 정보와 동일</label>
+                                                                   <label class="form-radio form-normal"><input type="radio" name="bls_info" value="N" onclick="copyInfo('N');" class="check_box"> 비우기</label>
+                                                                   </li>
+							                    	           </ul>
+							                    	           <!-- TAB UI -->
+							                    	           
+							                    	           <div class="form-group"> 
+							                    	               <label class="control-label fix_width120 tar">회사명</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width180" name="bls_cpn_name" id="bls_cpn_name">
+							                    	               <label class="fix_width40"> </label>
+							                    	               <label class="control-label fix_width100 tar">대표자명</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width180" name="bls_repre_name" id="bls_repre_name">
+							                    	               <br />
+							                    	               <label class="control-label fix_width120 tar">사업자등록번호</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width55" name="bls_crn_first" id="bls_crn_first" maxlength="3"> - <input type="text" class="input_co2 fix_width30" name="bls_crn_scd" id="bls_crn_scd" maxlength="2"> - <input type="text" class="input_co2 fix_width55" name="bls_crn_thd" id="bls_crn_thd" maxlength="5">
+							                    	               <label class="fix_width20"> </label>
+							                    	               <br />
+							                    	               <label class="control-label fix_width120 tar">업태</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width180" name="bls_bc" id="bls_bc">
+							                    	               <label class="fix_width40"> </label>
+							                    	               <label class="control-label fix_width100 tar">종목</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width180" name="bls_tob" id="bls_tob">
+							                    	               <br />
+							                    	               <label class="control-label fix_width120 tar">주소</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width40" maxlength="5" name="bls_zip" id="bls_zip" readonly>
+							                    	               <label onclick="popZipLayer('blsClick');" class="btn btn_pu fix_width75 bgreen fs13">우편번호</label>
+							                    	                <br />
+							                    	               <label class="fix_width140"></label>
+							                    	               <input type="text" class="input_co2 fix_width350" name="bls_addr_front" id="bls_addr_front" readonly>
+							                    	               <br />
+							                    	               <label class="fix_width140"></label>
+							                    	               <input type="text" class="input_co2 fix_width350" name="bls_addr_rear" id="bls_addr_rear">
+							                    	           </div>
+							                    	           <hr class="hr_bd3">
+							                    	           <div class="form-group">
+							                    	               <label class="control-label fix_width120 tar">거래은행</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <select id="bls_bank_name" name="bls_bank_name" class="fix_width120">
+							                    						     <option value="신한은행">신한은행</option>
+							                    						     <option value="국민은행">국민은행</option>
+							                    						     <option value="농협">농협</option>
+							                    						     <option value="우리은행">우리은행</option>
+							                    						     <option value="기업은행">기업은행</option>
+							                    						     <option value="하나은행">하나은행</option>
+							                    						     <option value="외환은행">외한은행</option>
+							                    						     <option value="경남은행">경남은행</option>
+							                    						     <option value="광주은행">광주은행</option>
+							                    						     <option value="대구은행">대구은행</option>
+							                    						     <option value="부산은행">부산은행</option>
+							                    						     <option value="산업은행">산업은행</option>
+							                    						     <option value="상호저축은행">상호저축은행</option>
+							                    						     <option value="새마을은행">새마을은행</option>
+							                    						     <option value="수협">수협</option>
+							                    						     <option value="신협">신협</option>
+							                    						     <option value="씨티은행">씨티은행</option>
+							                    						     <option value="우체국은행">우체국은행</option>
+							                    						     <option value="전북은행">전북은행</option>
+							                    						     <option value="제주은행">제주은행</option>
+							                    						     <option value="SC제일은행">SC제일은행</option>
+							                    						     <option value="HSBC은행">HSBC은행</option>
+							                    						     <option value="도이치은행">도이치은행</option>
+							                    	               </select>
+							                    	               <label class="fix_width10"></label>
+							                    	               <label class="control-label tar"> 계좌번호</label><label class="fix_width20 fs14 tac">:</label>
+							                    	               <input type="text" class="input_co2 fix_width150" name="bls_ba_num" id="bls_ba_num">
+							                    	               <br />
+							                    	               <hr class="hr_bd3">
+							                    	           	    <label class="control-label fix_width120 tar">참고사항</label><label class="fix_width20 fs14 tac">:</label>
+							                    	           	    <textarea class="bs_noti" name="bls_add_items" id="bls_add_items"></textarea>
+							                    	           </div>
+	
+					   </div>
+					   </form>
+             
+            </div> 
+            <div class="fix_width1200">
+						    <p class="btn-lg red_btn">
+						      <a href="#" onclick="regiNewEtprs();">등록</a>					
+						    </p>						          
+            </div>
+
+       </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

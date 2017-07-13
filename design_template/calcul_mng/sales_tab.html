@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content" class="fix_width1200">            
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+ 
+          
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group fix_width1200 clear">
+    			<ul class="tab_box mt25">
+    			    <li class="fl"><a class="box"> 기본검색정보 </a> </li>
+    			</ul>
+			    <form>
+			        <div class="tab_box_con">
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+        			        <select class="fix_width180">
+        					    <option>(주)굿프린팅</option>
+        		            </select>
+					    </div>
+					    
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar"> 월</label><label class="fix_width20 fs14 tac">:</label>
+        			        <select class="fix_width85">
+        					    <option>2015</option>
+        		            </select>
+							<select class="fix_width85">
+        					    <option>6</option>
+        		            </select>
+							<label class="fix_width105"></label>
+							<label class="control-label fix_width79 tar">회원명</label><label class="fix_width20 fs14 tac">:</label>
+        			        <input type="text" class="input_co2 fix_width200" value="부평">
+					    </div>					    
+			        </div>
+			    </form>
+            </div> <!-- 탭 박스 1 기본검색 -->           
+            
+             <!-- 상세검색버튼 -->
+            <div class="fix_width1200">
+                <p class="btn-lg red_btn">
+                    <a href="#">선택한 조건으로 검색</a>					
+                </p>
+            <div>
+
+           
+<div class="tb_group fix_width1200 mt25">
+               <div class="tab_box_con">
+                   <div class="tabbable">
+                   	
+                     <ul class="nav nav-tabs">
+                       <li class="active"><a href="#tab1" data-toggle="tab"> 발행 </a> </li>
+                       <li><a href="#tab2" data-toggle="tab"> 미발행 </a> </li>
+                       <li><a href="#tab3" data-toggle="tab"> 결과 </a> </li>
+                     </ul>
+                     
+                     <div class="tab-content">
+                     	
+                           <div class="tab-pane active" id="tab1"> <!-- tab 01 -->
+                         	
+                       	      <div class="table-body">
+                                   <ul class="table_top">
+									<li>
+											<label class="fix_width25f tac">업체수 : 1,141</label>
+											<label class="fix_width25f tac">매출합계 : 1,112,333</label>
+											<label class="fix_width25f tac">카드합계 : 2,345,221</label>
+											<label class="tac">발행합계 : 43,223,532</label>
+									</li>
+							      	                  <li class="sel mt15">
+													<label class="control-label fix_width79">발행구분</label><label class="fix_width20 fs14 tac">:</label>
+					                      	        <select class="fix_width200">
+					                      	            <option>전체</option>
+					                      	            <option>CSS</option>
+					                      	            <option>jQuery</option>
+					                      	            <option>Javascript</option>
+					                      	        </select>
+					                      		    </li>
+					                      		    <li class="sel tar mt15">
+					                      	            <label for="search" class="con_label">Search(회원명) : <input id="search" type="text" class="search_btn fix_width180"><button type="button" class="btn btn-sm btn-info fa fa-search"></button></label>
+					                      		    </li>
+                                   </ul>
+                                    <div class="table_basic">
+					                      		<table class="table fix_width100f">
+                                                   <thead>
+					                      				<tr class="bm2px">
+					                      					<th>선택</th>
+					                      					<th>회원명</th>
+					                      					<th>매출금액</th>
+					                      					<th>현금</th>
+					                      					<th>카드</th>
+					                      					<th>기타</th>
+					                      					<th>합계</th>
+					                      					<th>대상금액</th>
+					                      					<th>미발행금액</th>
+					                      					<th>나누기</th>
+					                      				</tr>
+					                      			 </thead>
+					                      			 <tbody>	
+					                      				<tr>
+					                      					<td><input type='checkbox'></td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td><label class="btn btn_pu fix_width85 bgreen fs13">발행</label> </td>
+					                      				</tr>
+					                      				
+					                      				<tr>
+					                      					<td>250</td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      				</tr>
+					                      				
+					                      				<tr>
+					                      					<td>250</td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      				</tr>
+					                      				
+					                      				<tr>
+					                      					<td>250</td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      				</tr>
+					                      			 </tbody>
+					                      		</table>
+					                      		<p class="p_num_b fs12">
+					                      			  Showing 1 to 5 of 20 entries
+					                      			  <select class="fix_width55">
+					                      	            <option>5</option>
+					                      	            <option>10</option>
+					                      	            <option>20</option>
+					                      	            <option>30</option>
+					                      	          </select>
+					                      		</p>
+										           <div class="tac clear">
+										               <ul class="pagination">
+										                   <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+										                   <li class="disabled"><i class="fa fa-angle-left"></i></li>
+										                   <li><a href="#">1</a></li>
+										                   <li><a href="#">2</a></li>
+										                   <li><a href="#">3</a></li>
+										                   <li><a href="#">4</a></li>
+										                   <li><a href="#">5</a></li>
+										                   <li><a href="#">...</a></li>
+										                   <li><a href="#" class="fa fa-angle-right"></a></li>
+										                   <li><a href="#" class="fa fa-angle-double-right"></a></li>
+										               </ul>
+										           </div>
+												<div class='clear mt15'>
+													<label class="btn btn_md fix_width80 posi_left"><i class="fa fa-plus blue"></i> 단일건으로 등록</label>
+												</div>
+												<div class='clear mt15 tac'>
+													<label class="btn btn_md fix_width80"><i class="fa fa-plus blue"></i>전액발행등록</label>
+													<label class="fix_width50"></label>
+													<label class="btn btn_md fix_width80"><i class="fa fa-plus blue"></i>미발행으로 전환</label>
+												</div>
+					                  </div>
+					                   
+                       	      </div>
+					   <div class="pop_add_box fix_width650 mt15">
+					   <form>
+									<dl>
+									    <dt class="tit">
+									        <h4>검색창 팝업</h4>
+									    </dt>
+									    <dt class="cls">
+									        <button type="button" class="btn btn-sm btn-danger fa fa-times"></button>
+									    </dt>
+									    </dl>  
+									    <div class="pop-base">
+									        <div class="pop-content">								        	   
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">회원명</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width200" value="부평">
+												</div>
+									            <hr class="hr_bd3">
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">공급받는자</label><label class="fix_width20 fs14 tac">:</label>
+													<select class="fix_width180">
+														<option>(주)굿프린팅</option>
+													</select>
+													<label class="control-label fix_width79 tar">사업자번호</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width170" value="">
+												</div>
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">대표자</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width170" value="">
+													<label class="control-label fix_width79 tar">주소</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width170" value="">
+												</div>
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">업태</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width170" value="">
+													<label class="control-label fix_width79 tar">종목</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width170" value="">
+												</div>		
+												<hr class="hr_bd3">
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">발행일자</label><label class="fix_width20 fs14 tac">:</label>
+													<select class="fix_width180">
+														<option>20151515</option>
+													</select>
+													<label class="control-label fix_width79 tar">품목</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width170" value="디자인">
+												</div>
+												<div class="form-group">
+													<label class="control-label fix_width79 tar">공급가액</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width170" value="">
+													<label class="control-label fix_width79 tar">세액</label><label class="fix_width20 fs14 tac">:</label>
+													<input type="text" class="input_co2 fix_width170" value="">
+												</div>
+												<div class='clear mt15 tac'>
+													<label class="btn btn_md fix_width80"><i class="fa fa-plus blue"></i>발행</label>
+													<label class="fix_width50"></label>
+													<label class="btn btn_md fix_width80"><i class="fa fa-plus blue"></i>취소</label>
+												</div>
+									        </div>
+									    </div>
+										</form>
+					   </div>  
+					   <!-- 검색 팝업창 --> 
+                           </div>
+
+                           
+                           <div class="tab-pane" id="tab2"> <!-- tab 01 -->
+                           	
+                       	      <div class="table-body">
+                                   <ul class="table_top">
+							      	                  <li class="sel">
+													<label class="control-label fix_width79">발행구분</label><label class="fix_width20 fs14 tac">:</label>
+					                      	        <select class="fix_width200">
+					                      	            <option>전체</option>
+					                      	            <option>CSS</option>
+					                      	            <option>jQuery</option>
+					                      	            <option>Javascript</option>
+					                      	        </select>
+					                      		    </li>
+					                      		    <li class="sel tar">
+					                      	            <label for="search" class="con_label">Search(회원명) : <input id="search" type="text" class="search_btn fix_width180"><button type="button" class="btn btn-sm btn-info fa fa-search"></button></label>
+					                      		    </li>
+                                   </ul>
+                                    <div class="table_basic">
+					                      		<table class="table fix_width100f">
+                                                   <thead>
+					                      				<tr class="bm2px">
+					                      					<th>선택</th>
+					                      					<th>회원명</th>
+					                      					<th>전화번호</th>
+					                      					<th>매출금액</th>
+					                      					<th>현금</th>
+					                      					<th>카드</th>
+					                      					<th>기타</th>
+					                      					<th>합계</th>
+					                      					<th>대상금액</th>
+					                      				</tr>
+					                      			 </thead>
+					                      			 <tbody>	
+					                      				<tr>
+					                      					<td><input type='checkbox'></td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      				</tr>
+					                      				
+					                      				<tr>
+					                      					<td><input type='checkbox'></td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      				</tr>
+					                      				
+					                      				<tr>
+					                      					<td><input type='checkbox'></td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      				</tr>
+					                      				
+					                      				<tr>
+					                      					<td><input type='checkbox'></td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      				</tr>
+					                      			 </tbody>
+					                      		</table>
+					                      		<p class="p_num_b fs12">
+					                      			  Showing 1 to 5 of 20 entries
+					                      			  <select class="fix_width55">
+					                      	            <option>5</option>
+					                      	            <option>10</option>
+					                      	            <option>20</option>
+					                      	            <option>30</option>
+					                      	          </select>
+					                      		</p>
+										           <div class="tac clear">
+										               <ul class="pagination">
+										                   <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+										                   <li class="disabled"><i class="fa fa-angle-left"></i></li>
+										                   <li><a href="#">1</a></li>
+										                   <li><a href="#">2</a></li>
+										                   <li><a href="#">3</a></li>
+										                   <li><a href="#">4</a></li>
+										                   <li><a href="#">5</a></li>
+										                   <li><a href="#">...</a></li>
+										                   <li><a href="#" class="fa fa-angle-right"></a></li>
+										                   <li><a href="#" class="fa fa-angle-double-right"></a></li>
+										               </ul>
+										           </div>
+												<div class='clear mt15 tac'>
+													<label class="btn btn_md fix_width80"><i class="fa fa-plus blue"></i>발행으로 전환</label>
+												</div>
+					                  </div>
+					                   
+                       	      </div>
+                           </div>
+							<!-- tab2 end-->
+                           <div class="tab-pane" id="tab3"> <!-- tab 01 -->
+                           	
+                       	      <div class="table-body">
+                                   <ul class="table_top">
+							      	                  <li class="sel">
+													<label class="control-label fix_width79">발급구분</label><label class="fix_width20 fs14 tac">:</label>
+					                      	        <select class="fix_width200">
+					                      	            <option>전체</option>
+					                      	            <option>CSS</option>
+					                      	            <option>jQuery</option>
+					                      	            <option>Javascript</option>
+					                      	        </select>
+					                      		    </li>
+					                      		    <li class="sel tar">
+					                      	            <label for="search" class="con_label">Search(회원명) : <input id="search" type="text" class="search_btn fix_width180"><button type="button" class="btn btn-sm btn-info fa fa-search"></button></label>
+					                      		    </li>
+                                   </ul>
+                                    <div class="table_basic">
+					                      		<table class="table fix_width100f">
+                                                   <thead>
+					                      				<tr class="bm2px">
+					                      					<th>선택</th>
+					                      					<th>발급일자</th>
+					                      					<th>회원명</th>
+					                      					<th>공급받는자</th>
+					                      					<th>공급가액</th>
+					                      					<th>세액</th>
+					                      					<th>발급금액</th>
+					                      					<th>발급</th>
+					                      				</tr>
+					                      			 </thead>
+					                      			 <tbody>	
+					                      				<tr>
+					                      					<td><input type='checkbox'></td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>발급</td>
+
+					                      				</tr>
+					                      				
+					                      				<tr>
+					                      					<td><input type='checkbox'></td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>미발급</td>
+					                      				</tr>
+					                      				
+					                      				<tr>
+					                      					<td><input type='checkbox'></td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>-1,000</td>
+					                      				</tr>
+					                      				
+					                      				<tr>
+					                      					<td><input type='checkbox'></td>
+					                      					<td>4,000</td>
+					                      					<td>1,000</td>
+					                      					<td>-1,000</td>
+					                      					<td>-</td>
+					                      					<td>4,000</td>
+					                      					<td>0</td>
+					                      					<td>-1,000</td>
+					                      				</tr>
+					                      			 </tbody>
+					                      		</table>
+					                      		<p class="p_num_b fs12">
+					                      			  Showing 1 to 5 of 20 entries
+					                      			  <select class="fix_width55">
+					                      	            <option>5</option>
+					                      	            <option>10</option>
+					                      	            <option>20</option>
+					                      	            <option>30</option>
+					                      	          </select>
+					                      		</p>
+										           <div class="tac clear">
+										               <ul class="pagination">
+										                   <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+										                   <li class="disabled"><i class="fa fa-angle-left"></i></li>
+										                   <li><a href="#">1</a></li>
+										                   <li><a href="#">2</a></li>
+										                   <li><a href="#">3</a></li>
+										                   <li><a href="#">4</a></li>
+										                   <li><a href="#">5</a></li>
+										                   <li><a href="#">...</a></li>
+										                   <li><a href="#" class="fa fa-angle-right"></a></li>
+										                   <li><a href="#" class="fa fa-angle-double-right"></a></li>
+										               </ul>
+										           </div>
+												<div class='clear mt15 tac'>
+													<label class="btn btn_md fix_width80"><i class="fa fa-plus blue"></i>선택발급취소</label>
+													<label class="fix_width50"></label>
+													<label class="btn btn_md fix_width80"><i class="fa fa-plus blue"></i>발급-엑셀다운로드</label>
+												</div>
+					                  </div>
+					                   
+                       	      </div>
+                           </div>
+						   <!-- tab3 end-->
+
+                   </div>  
+               </div>    
+            </div>
+            
+
+        </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

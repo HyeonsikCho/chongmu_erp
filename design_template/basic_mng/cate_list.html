@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+       <!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+	   <!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+       <section id="page-content" class="fix_width1200">
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            
+            <!-- 본문 컨텐츠  시작-->
+            
+            <!-- 탭 박스 3 TAB -->
+            <div class="tb_group fix_width1200 mt25">
+               <div class="tab_box_con">
+                   <div class="tabbable">
+                   	
+                   	<!-- TAB UI 
+                     <ul class="nav nav-tabs">
+                       <li class="active">
+                       	   <a href="#tab2" data-toggle="tab"> 카테고리정보</a>
+                       </li>
+                     </ul>
+                      TAB UI -->
+                     
+                     <div class="tab-content">
+                       
+                       <div class="tab-pane active" id="tab2"> <!-- TAB 02 -->
+
+					             <div class="tree_box" id="tree_box">
+                                 [TPH_Vcate_tree]
+					             </div>
+					                  <div class="category_box"> 	
+										 <form>
+												<div class="form-group">
+				                                   <label class="control-label2">현재 선택한 카테고리</label><label class="fix_width20 fs14 tac">:</label>
+				                                   <input type="text" class="input_dis_co2 fix_width180" placeholder="선택 카테고리 없음" id="select_cate" disabled>
+												</div> 
+												
+												<div class="form-group">
+				                                   <label class="control-label ls-01 tar"> 생산유형</label><label class="fix_width20 fs14 tac"> :</label>
+				                                   <label class="form-radio"><input type="radio" id="flattyp_y" name="flattyp" class="radio_box"> 낱장형</label>
+				                                   <label class="fix_width15"></label>   
+                                                   <label class="form-radio"><input type="radio" id="flattyp_n" name="flattyp" class="radio_box"> 책자형</label>
+				                                   <label style="width: 452px;"></label>
+                                                </div>
+
+												<div class="form-group">
+				                                   <label class="control-label ls-01 tar"> 계산방식</label><label class="fix_width20 fs14 tac"> :</label>
+				                                   <label class="form-radio"><input type="checkbox" id="mono_n" class="check_box"> 확정형</label>
+				                                   <label class="fix_width15"></label>   
+				                                   <label class="form-radio"><input type="checkbox" id="mono_y" class="check_box"> 계산형</label>
+				                                   <label style="width: 452px;"></label>
+												</div>		
+												<div class="form-group">
+				                                   <label class="control-label ls-01 tar"> 총무팀 판매요율</label><label class="fix_width20 fs14 tac"> :</label>
+				                                   <input type="text" class="input_dis_co2 fix_width180"  id="c_rate" name="c_rate" disabled>
+												   <label style="width: 372px;"></label>
+				                                   <label class="tar"></label>
+												</div>			
+												<div class="form-group">
+				                                   <label class="control-label ls-01 tar"> 고객적립요율</label><label class="fix_width20 fs14 tac"> :</label>
+				                                   <input type="text" class="input_dis_co2 fix_width180"  id="c_user_rate" name="c_user_rate" disabled>
+												   <label style="width: 372px;"></label>
+				                                   <label class="tar"><button type="button" id="update_btn" class="btn btn-sm btn-info" onclick="editCateInfo();">수정</button><button type="button" id="save_btn" class="btn btn-sm btn-success" onclick="saveCateInfo();" style="display:none;">저장</button></label>
+												</div>														
+												<hr class="hr_bd3_b">
+
+												<!-- SUB TAB UI -->
+												<ul class="nav nav-tabs mt50">
+												    <li class="active">
+												        <a href="#tab5" onclick="tabCtrl('paper');" data-toggle="tab"> 종이 </a> 
+												    </li>
+												    <li>
+												        <a href="#tab6" onclick="tabCtrl('size');" data-toggle="tab"> 사이즈 </a> 
+												    </li>
+												    <li>
+												        <a href="#tab7" onclick="tabCtrl('print');" data-toggle="tab"> 인쇄도수 </a> 
+												    </li>
+												     <li>
+												        <a href="#tab8" onclick="tabCtrl('after');" data-toggle="tab"> 후공정 </a> 
+												    </li>
+												     <li>
+												        <a href="#tab9" onclick="tabCtrl('opt');" data-toggle="tab"> 옵션 </a> 
+												    </li>
+												    <li>
+												        <a href="#tab10" onclick="tabCtrl('grade');" data-toggle="tab"> 등급할인 </a> 
+												    </li>
+												</ul>
+												
+												<div class="tab-content">
+												    <div class="tab-pane active" id="tab5"><!-- 종이 TAB -->
+
+                       	                            <div class="table-body min_height500">
+                                                         <ul class="table_top">
+							      	                               <li class="sel">
+							      	                               	<select class="fix_width150" id="paper_sort" onchange="selectSortOption('paper');">
+                                                                      <option>종이대분류(전체)</option>
+							      	                               	</select> <label class="fs12">현재 등록된 종이입니다.</label>
+							      	                               </li>
+							      	                               <li class="sel tar">
+					                                            	   <label for="paper_search" class="con_label">Search(종이명) : <input id="paper_search" type="text" class="search_btn fix_width100" onkeydown="searchKey(event, this.value);"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('paper');"></button></label>
+							      	                               </li>
+                                                         </ul>
+                                                          
+                                                         <div class="table_basic">
+					                                            		<table class="table fix_width100f">
+                                                                      <thead>
+									                                                   <tr>
+										                                                     <th class="bm2px">NO</th>
+										                                                     <th class="bm2px">대분류</th>
+										                                                     <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('name', this);" class="blue_text01">종이명 <i class="fa fa-sort"></i></a></th>
+										                                                     <th class="bm2px">구분</th>
+										                                                     <th class="bm2px">색상</th>
+										                                                     <th class="bm2px">평량</th>
+										                                                 </tr>
+                                                                      </thead>
+                                                                      <tbody id="paper_list">
+                                                                        <tr>
+                                                                          <td colspan="6">검색 된 내용이 없습니다.
+                                                                          </td>
+                                                                        </tr>
+                                                                      </tbody>
+					                                            		</table>
+					                                                 		<p class="p_num_b fs12">
+					                                                 			  Showing 1 to 5 of 30 entries
+					                                                 			  <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'paper');">
+					                                                 	            <option>5</option>
+					                                                 	            <option>10</option>
+					                                                 	            <option>20</option>
+					                                                 	            <option selected="selected">30</option>
+					                                                 	          </select>
+					                                                 		</p>
+					                                            		<div class="tac clear" id="paper_page">
+					                                            		</div>
+                                                         </div>
+                       	                            </div>
+	
+												    </div><!-- 종이 TAB -->
+												
+												    <div class="tab-pane" id="tab6"><!-- 사이즈 TAB -->
+		
+                       	                            <div class="table-body min_height500">
+                                                         <ul class="table_top">
+							      	                               <li class="sel">
+							      	                               	<select class="fix_width150" id="size_sort" onchange="selectSortOption('size');">
+                                                                      <option>사이즈대분류(전체)</option>
+							      	                               	   </select> <label class="fs12">현재 등록된 사이즈입니다.</label>
+							      	                               </li>
+							      	                               <li class="sel tar">
+					                                            	   <label for="size_search" class="con_label">Search(사이즈명) : <input id="size_search" type="text" class="search_btn fix_width100" onkeydown="searchKey(event, this.value);"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('size');"></button></label>
+							      	                               </li>
+                                                         </ul>
+                                                          
+                                                         <div class="table_basic">
+					                                            		<table class="table fix_width100f">
+                                                                      <thead>
+									                                                   <tr>
+										                                                     <th class="bm2px">NO</th>
+										                                                     <th class="bm2px">대분류</th>
+										                                                     <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('name', this);" class="blue_text01">사이즈명 <i class="fa fa-sort"></i></a></th>
+										                                                     <th class="bm2px">사이즈유형</th>
+										                                                     <th class="bm2px">작업사이즈</th>
+										                                                     <th class="bm2px">재단사이즈</th>
+										                                                     <th class="bm2px">디자인사이즈</th>
+										                                                     <th class="bm2px">도무송사이즈</th>
+										                                                 </tr>
+                                                                      </thead>
+                                                                      <tbody id="size_list">
+                                                                        <tr>
+                                                                          <td colspan="8">검색 된 내용이 없습니다.
+                                                                          </td>
+                                                                        </tr>
+                                                                      </tbody>
+					                                            		</table>
+					                                                 		<p class="p_num_b fs12">
+					                                                 			  Showing 1 to 5 of 30 entries
+					                                                 			  <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'size');">
+					                                                 	            <option>5</option>
+					                                                 	            <option>10</option>
+					                                                 	            <option>20</option>
+					                                                 	            <option selected="selected">30</option>
+					                                                 	          </select>
+					                                                 		</p>
+					                                            		<div class="tac clear" id="size_page">
+					                                            		</div>
+                                                         </div>
+                       	                            </div>
+		
+												    </div><!-- 사이즈 TAB -->
+												    
+												    <div class="tab-pane" id="tab7"><!-- 인쇄도수 TAB -->
+		
+                       	                            <div class="table-body min_height500">
+                                                         <ul class="table_top">
+							      	                               <li class="sel">
+							      	                               	<select class="fix_width150" id="print_sort" onchange="selectSortOption('print');">
+                                                                      <option>인쇄대분류(전체)</option>
+							      	                               	   </select> <label class="fs12">현재 등록된 인쇄도수입니다.</label>
+							      	                               </li>
+							      	                               <li class="sel tar">
+					                                            	   <label for="print_search" class="con_label">Search(인쇄도수명) : <input id="print_search" type="text" class="search_btn fix_width100" onkeydown="searchKey(event, this.value);"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('print');"></button></label>
+							      	                               </li>
+                                                         </ul>
+                                                          
+                                                         <div class="table_basic">
+					                                            		<table class="table fix_width100f">
+                                                                      <thead>
+									                                                   <tr>
+										                                                     <th class="bm2px">NO</th>
+										                                                     <th class="bm2px">대분류</th>
+										                                                     <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('name', this);" class="blue_text01">인쇄도수명 <i class="fa fa-sort"></i></a></th>
+										                                                     <th class="bm2px">면구분</th>
+										                                                     <th class="bm2px">앞면인쇄</th>
+										                                                     <th class="bm2px">뒷면인쇄</th>
+										                                                     <th class="bm2px">추가인쇄</th>
+										                                                     <th class="bm2px">총도수</th>
+										                                                 </tr>
+                                                                      </thead>
+                                                                      <tbody id="print_list">
+                                                                        <tr>
+                                                                          <td colspan="8">검색 된 내용이 없습니다.
+                                                                          </td>
+                                                                        </tr>
+                                                                      </tbody>
+					                                            		</table>
+					                                                 		<p class="p_num_b fs12">
+					                                                 			  Showing 1 to 5 of 30 entries
+					                                                 			  <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'print');">
+					                                                 	            <option>5</option>
+					                                                 	            <option>10</option>
+					                                                 	            <option>20</option>
+					                                                 	            <option selected="selected">30</option>
+					                                                 	          </select>
+					                                                 		</p>
+					                                            		<div class="tac clear" id="print_page">
+					                                            		</div>
+                                                         </div>
+                       	                            </div>
+		
+												    </div><!-- 인쇄도수 TAB -->
+												    
+												    <div class="tab-pane" id="tab8"><!-- 후공정 TAB -->
+		
+                       	                            <div class="table-body min_height500">
+                                                         <ul class="table_top">
+							      	                               <li class="sel">
+							      	                               	<select class="fix_width150" id="after_sort" onchange="selectSortOption('after');">
+                                                                      <option>후공정대분류(전체)</option>
+							      	                               	   </select> <label class="fs12">현재 등록된 후공정입니다.</label>
+							      	                               </li>
+							      	                               <li class="sel tar">
+					                                            	   <label for="after_search" class="con_label">Search(후공정명) : <input id="after_search" type="text" class="search_btn fix_width100" onkeydown="searchKey(event, this.value);"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('after');"></button></label>
+							      	                               </li>
+                                                         </ul>
+                                                          
+                                                         <div class="table_basic">
+					                                            		<table class="table fix_width100f">
+                                                                      <thead>
+									                                                   <tr>
+										                                                     <th class="bm2px">NO</th>
+										                                                     <th class="bm2px">대분류</th>
+										                                                     <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('name', this);" class="blue_text01">후공정명 <i class="fa fa-sort"></i></a></th>
+										                                                     <th class="bm2px">Depth1</th>
+										                                                     <th class="bm2px">Depth2</th>
+										                                                     <th class="bm2px">Depth3</th>
+										                                                 </tr>
+                                                                      </thead>
+                                                                      <tbody id="after_list">
+                                                                        <tr>
+                                                                          <td colspan="6">검색 된 내용이 없습니다.
+                                                                          </td>
+                                                                        </tr>
+                                                                      </tbody>
+					                                            		</table>
+					                                                 		<p class="p_num_b fs12">
+					                                                 			  Showing 1 to 5 of 30 entries
+					                                                 			  <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'after');">
+					                                                 	            <option>5</option>
+					                                                 	            <option>10</option>
+					                                                 	            <option>20</option>
+					                                                 	            <option selected="selected">30</option>
+					                                                 	          </select>
+					                                                 		</p>
+					                                            		<div class="tac clear" id="after_page">
+					                                            		</div>
+                                                         </div>
+                       	                            </div>
+		
+												    </div><!-- 후공정 TAB -->
+												    
+												    <div class="tab-pane" id="tab9"><!-- 옵션 TAB -->
+		
+                       	                            <div class="table-body min_height500"> <ul class="table_top"> <li class="sel">
+							      	                               	<select class="fix_width150" id="opt_sort" onchange="selectSortOption('opt');">
+                                                                      <option>옵션대분류(전체)</option>
+							      	                               	   </select> <label class="fs12">현재 등록된 옵션입니다.</label>
+							      	                               </li>
+							      	                               <li class="sel tar">
+					                                            	   <label for="opt_search" class="con_label">Search(옵션명) : <input id="opt_search" type="text" class="search_btn fix_width100" onkeydown="searchKey(event, this.value);"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('opt');"></button></label>
+							      	                               </li>
+                                                         </ul>
+                                                          
+                                                         <div class="table_basic">
+					                                            		<table class="table fix_width100f">
+                                                                      <thead>
+									                                                   <tr>
+										                                                     <th class="bm2px">NO</th>
+										                                                     <th class="bm2px">대분류</th>
+										                                                     <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('name', this);" class="blue_text01">옵션명 <i class="fa fa-sort"></i></a></th>
+										                                                     <th class="bm2px">Depth1</th>
+										                                                     <th class="bm2px">Depth2</th>
+										                                                     <th class="bm2px">Depth3</th>
+										                                                 </tr>
+                                                                      </thead>
+                                                                      <tbody id="opt_list">
+                                                                        <tr>
+                                                                          <td colspan="6">검색 된 내용이 없습니다.
+                                                                          </td>
+                                                                        </tr>
+                                                                      </tbody>
+					                                            		</table>
+					                                                 		<p class="p_num_b fs12">
+					                                                 			  Showing 1 to 5 of 30 entries
+					                                                 			  <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'opt');">
+					                                                 	            <option>5</option>
+					                                                 	            <option>10</option>
+					                                                 	            <option>20</option>
+					                                                 	            <option selected="selected">30</option>
+					                                                 	          </select>
+					                                                 		</p>
+					                                            		<div class="tac clear" id="opt_page">
+					                                            		</div>
+                                                         </div>
+                       	                            </div>
+		
+												    </div><!-- 옵션 TAB -->
+	
+												    <div class="tab-pane" id="tab10"><!-- 등급할인 TAB -->
+		
+                       	                            <div class="table-body">
+                                                         <div class="table_basic">
+					                                            		<table class="table fix_width100f">
+                                                                      <thead>
+									                                                   <tr>
+										                                                     <th class="bm2px">등급명</th>
+										                                                     <th class="bm2px">레벨</th>										                                                     
+										                                                     <th class="bm2px">할인</th>										                                                     
+										                                                 </tr>
+                                                                      </thead>
+                                                                      <tbody id="grade_list">
+                                                                        <tr>
+                                                                          <td colspan="3">카테고리별 등급할인은 소분류에만 적용 됩니다.
+                                                                          </td>
+                                                                        </tr>
+                                                                      </tbody>
+					                                            		</table>					                                            		
+					                                            		<p class="btn-lg red_btn" id="grade_btn" style="display:none;">
+					                                                      	<a style="cursor: pointer;" onclick="insertCateMemberGradeRate();">등급정책을 저장합니다.</a>					
+                                                                        </p>
+                                                         </div>
+                       	                            </div>
+		                                            
+												    </div><!-- 등급할인 TAB -->											  
+										    	</div>
+												<!-- TAB UI -->
+
+										</form>
+					                  </div>
+
+                       </div><!-- TAB 02 -->
+                   </div> 
+                   </div>
+               </div> 
+            </div> <!-- 탭 박스 3 TAB -->
+
+       </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>
